@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import Logo from './Logo.jsx'
 import { primaryNav } from '../data/nav.js'
+import { REGISTRATION } from '../data/org.js'
 
 function DesktopItem({ item }) {
   if (!item.children) {
@@ -47,6 +48,11 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
+      <div className="border-b border-line bg-surface-50">
+        <div className="container-px flex justify-end py-1.5">
+          <span className="text-[0.7rem] font-medium text-muted">NPC {REGISTRATION.npc}</span>
+        </div>
+      </div>
       <div className="container-px flex h-20 items-center justify-between">
         <Link to="/" onClick={() => setOpen(false)}>
           <Logo />
