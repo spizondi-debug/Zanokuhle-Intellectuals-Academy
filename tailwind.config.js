@@ -1,13 +1,18 @@
 /**
  * Zanokuhle Intellectuals Academy — brand tokens.
  *
- * No logo file has been supplied yet. This palette is a considered starting
- * point (deep green for growth/community, strong blue for trust/education,
- * a warm gold accent for hope/opportunity, warm-neutral backgrounds) rather
- * than a colour lifted from the mark. When the real logo arrives, re-check
- * every value below against it — `green` and `blue` in particular — and
- * adjust so the palette reads as drawn from the mark, not just compatible
- * with it.
+ * `green` and `blue` are tuned to the actual logo (public/images/zanokuhle-logo.png),
+ * not just a compatible palette: sampled the teal-green and blue puzzle
+ * pieces at roughly hue 170° and 213° respectively (HSL), then built each
+ * DEFAULT/deep/light/pale set at that hue rather than the generic ~159°/
+ * 214° this started from. `blue` needed almost no shift — the placeholder
+ * had already landed within a couple of degrees of the mark's blue by
+ * coincidence. `gold` is not sampled from a single logo swatch (the mark
+ * has no true gold — its warm colours are a red-orange and a bright
+ * yellow) but sits deliberately between those two hues, so it reads as
+ * drawn from the same warm family as the mark rather than an unrelated
+ * amber. Every contrast pairing below was re-verified after the hue shift
+ * (see the `gold`/`muted` comments) — re-check again if any value changes.
  *
  * @type {import('tailwindcss').Config}
  */
@@ -18,10 +23,10 @@ export default {
       colors: {
         // Deep green — growth, community, hope. Primary brand colour.
         green: {
-          DEFAULT: '#1F6E52',
-          deep: '#164F3B',
-          light: '#3F9C77',
-          pale: '#E9F5EF',
+          DEFAULT: '#1F6F62',
+          deep: '#165046',
+          light: '#409C8C',
+          pale: '#EDF8F6',
         },
         // Strong blue — trust, education, action. Secondary brand colour.
         blue: {
