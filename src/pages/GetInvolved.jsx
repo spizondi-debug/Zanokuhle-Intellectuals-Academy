@@ -2,7 +2,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 import Notice from '../components/Notice.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import { involvementPathways, enquiryTypes, donationNote } from '../data/getInvolved.js'
 
 export default function GetInvolved() {
@@ -31,9 +31,9 @@ export default function GetInvolved() {
 
       <section className="border-y border-line bg-white section-pad">
         <div className="container-px">
-          <PhotoPlaceholder
-            label="Photography placeholder"
-            tone="blue"
+          <StockPhoto
+            src="/images/stock-getinvolved-children-playing.jpg"
+            alt="Children playing together outdoors"
             className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]"
           />
         </div>

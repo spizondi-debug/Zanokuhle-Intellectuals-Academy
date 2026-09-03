@@ -2,7 +2,7 @@ import { Sprout, BookOpenText, Calculator, HeartHandshake, Users, House, ShieldC
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import Notice from '../components/Notice.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
@@ -44,9 +44,9 @@ export default function EarlyChildhoodDevelopment() {
               ))}
             </div>
           </div>
-          <PhotoPlaceholder
-            label="Photography placeholder"
-            tone="turquoise"
+          <StockPhoto
+            src="/images/ecd-child-painting.jpg"
+            alt="A young child painting during an early-learning activity"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
           />
         </div>

@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin } from 'lucide-react'
 import PageHeader from '../components/PageHeader.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import { CONTACT } from '../data/org.js'
 
 const generalEnquiryTypes = [
@@ -26,9 +26,9 @@ export default function Contact() {
       <section className="section-pad">
         <div className="container-px grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div className="space-y-6">
-            <PhotoPlaceholder
-              label="Photography placeholder"
-              tone="blue"
+            <StockPhoto
+              src="/images/stock-contact-classroom-portrait.jpg"
+              alt="A child in a classroom setting with other children"
               className="h-40 rounded-2xl"
             />
             <div className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">

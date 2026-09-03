@@ -1,15 +1,26 @@
 /**
- * StockPhoto — licensed stock/reference photography.
+ * StockPhoto — real or licensed reference photography, rendered plainly.
  *
- * Confirmed with the person supplying these: not photographs of Zanokuhle's
- * own learners or programmes, and no documented parental/guardian consent
- * exists for them (see SAFEGUARDING_NOTE in data/org.js). Used here as
- * generic scene-setting imagery only — alt text stays descriptive of the
- * scene, never naming a specific Zanokuhle programme, learner or location,
- * so nothing on the page implies these are identified participants.
- * Replace with real, consented Zanokuhle photography as it becomes
- * available; PhotoPlaceholder remains the right choice for any slot that
- * doesn't yet have a suitable photo at all.
+ * Most images used through this component are stock/reference photos:
+ * confirmed with the person supplying them as not photographs of
+ * Zanokuhle's own learners or programmes, with no documented parental/
+ * guardian consent (see SAFEGUARDING_NOTE in data/org.js). Those are used
+ * as generic scene-setting imagery only — alt text stays descriptive of
+ * the scene, never naming a specific Zanokuhle programme, learner or
+ * location, so nothing on the page implies these are identified
+ * participants.
+ *
+ * One exception: `ecd-child-painting.jpg` (Early Childhood Development
+ * page) is real Zanokuhle photography confirmed as consented by the
+ * person supplying it. It's still captioned generically — no name or
+ * personal story attached — because none has been confirmed, but it may
+ * be used more specifically than the stock set if that changes. Any
+ * other filename without a `stock-` prefix should be treated the same
+ * way: check before assuming it's stock.
+ *
+ * Replace any of these with better/updated Zanokuhle photography as it
+ * becomes available; PhotoPlaceholder remains the right choice for any
+ * slot that doesn't yet have a suitable photo at all.
  *
  * `src` takes the full path (e.g. "/images/stock-hero-learners-smiling.jpg"),
  * not just a filename — scripts/build-preview.mjs finds and inlines every

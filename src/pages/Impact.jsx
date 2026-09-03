@@ -2,7 +2,7 @@ import { TrendingUp } from 'lucide-react'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Notice from '../components/Notice.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { impactAreas, accountabilityPractices, impactStatement } from '../data/impact.js'
 
@@ -61,9 +61,9 @@ export default function Impact() {
               ))}
             </div>
           </div>
-          <PhotoPlaceholder
-            label="Photography placeholder"
-            tone="turquoise"
+          <StockPhoto
+            src="/images/stock-impact-boy-writing.jpg"
+            alt="A child writing and colouring in a notebook"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
           />
         </div>
