@@ -29,6 +29,7 @@ export default function SkillsAndYouthDevelopment() {
         eyebrow="Programme area"
         title="Skills & Youth Development."
         lead="Digital literacy, career readiness, entrepreneurship and leadership — practical skills that open real pathways beyond school."
+        image="/images/stock-skills-coding-robotics.jpg"
       />
 
       <section className="section-pad">

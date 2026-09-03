@@ -22,6 +22,7 @@ export default function About() {
         eyebrow="About Zanokuhle"
         title="Who we are."
         lead="A South African Non-Profit Organisation and Non-Profit Company building practical pathways in learning, opportunity and community."
+        image="/images/stock-about-learners-uniform.jpg"
       />
 
       {/* Story */}

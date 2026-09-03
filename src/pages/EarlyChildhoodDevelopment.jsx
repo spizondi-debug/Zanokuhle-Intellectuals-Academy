@@ -26,6 +26,7 @@ export default function EarlyChildhoodDevelopment() {
         eyebrow="Programme area"
         title="Early Childhood Development."
         lead="Giving young children the early foundations they need — and supporting the practitioners, parents and caregivers around them."
+        image="/images/ecd-child-painting.jpg"
       />
 
       <section className="section-pad">

@@ -12,6 +12,7 @@ export default function GetInvolved() {
         eyebrow="Get involved"
         title="There is a role here for you."
         lead="Whether you give, partner, volunteer or open a door for a young person, your support becomes a real, structured pathway — not a one-off gesture."
+        image="/images/stock-getinvolved-children-playing.jpg"
       />
 
       <section className="section-pad">

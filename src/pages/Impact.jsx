@@ -22,6 +22,7 @@ export default function Impact() {
         eyebrow="Impact & accountability"
         title="How we measure and report our work."
         lead="Real accountability means describing what we track honestly — including where we don't yet have a confirmed figure to share."
+        image="/images/stock-impact-boy-writing.jpg"
       />
 
       <section className="section-pad">

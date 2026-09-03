@@ -26,6 +26,7 @@ export default function EducationAfterSchool() {
         eyebrow="Programme area"
         title="Education & After-School Programmes."
         lead="Consistent academic support that keeps learners progressing — tutoring, homework support, mentorship and the resources behind them."
+        image="/images/stock-education-classroom-desks.jpg"
       />
 
       <section className="section-pad">

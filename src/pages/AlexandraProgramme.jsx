@@ -13,6 +13,7 @@ export default function AlexandraProgramme() {
         eyebrow={`Flagship programme · ${alexandraOverview.duration}`}
         title="Alexandra Learner Advancement Programme."
         lead={alexandraOverview.summary}
+        image="/images/stock-alexandra-classroom.jpg"
       />
 
       {/* Overview */}

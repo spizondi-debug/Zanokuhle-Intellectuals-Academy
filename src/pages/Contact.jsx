@@ -21,6 +21,7 @@ export default function Contact() {
         eyebrow="Contact us"
         title="Let's talk."
         lead="Whether you're a parent, a school, a funder or simply curious about our work, we'd like to hear from you."
+        image="/images/stock-contact-classroom-portrait.jpg"
       />
 
       <section className="section-pad">

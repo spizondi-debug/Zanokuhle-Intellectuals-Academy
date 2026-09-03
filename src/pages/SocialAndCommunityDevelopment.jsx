@@ -24,6 +24,7 @@ export default function SocialAndCommunityDevelopment() {
         eyebrow="Programme area"
         title="Social & Community Development."
         lead="We work alongside communities — not for them — so that opportunity and support reach further than any one learner or classroom."
+        image="/images/stock-community-playground.jpg"
       />
 
       <section className="section-pad">

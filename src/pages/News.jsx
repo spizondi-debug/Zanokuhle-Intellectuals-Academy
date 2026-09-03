@@ -12,6 +12,7 @@ export default function News() {
         eyebrow="News & stories"
         title="What's happening at Zanokuhle."
         lead="Programme updates, learner stories, community activity and reports — published only with the right consent in place."
+        image="/images/stock-news-community-hands.jpg"
       />
 
       <section className="section-pad">
