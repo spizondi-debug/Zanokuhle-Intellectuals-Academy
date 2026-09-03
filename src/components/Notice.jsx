@@ -8,7 +8,7 @@ export default function Notice({ children, icon = 'shield', tone = 'blue' }) {
     green: 'bg-green-pale text-green-deep',
   }
   return (
-    <div className="flex items-start gap-3 rounded-2xl border border-line bg-white p-5">
+    <div className="flex items-start gap-3 rounded-xl border border-line bg-white p-5">
       <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${tones[tone]}`}>
         <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
       </span>

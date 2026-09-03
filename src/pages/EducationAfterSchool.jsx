@@ -56,7 +56,7 @@ export default function EducationAfterSchool() {
           <StockPhoto
             src="/images/stock-education-classroom-desks.jpg"
             alt="Learners at desks in a classroom, engaged in a lesson"
-            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}
             height={1080}
           />

@@ -33,22 +33,22 @@ export default function AlexandraProgramme() {
           <StockPhoto
             src="/images/stock-alexandra-classroom.jpg"
             alt="Learners seated at desks in a classroom"
-            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}
             height={1278}
           />
           <div>
             <SectionHeading eyebrow="Overview" title="A multi-year pathway, not a once-off intervention." />
             <dl className="mt-6 grid gap-5 sm:grid-cols-2">
-              <div className="rounded-2xl border border-line bg-white p-5">
+              <div className="rounded-xl border border-line bg-white p-5">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-muted">Duration</dt>
                 <dd className="mt-1 font-bold text-ink">{alexandraOverview.duration}</dd>
               </div>
-              <div className="rounded-2xl border border-line bg-white p-5">
+              <div className="rounded-xl border border-line bg-white p-5">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-muted">Location</dt>
                 <dd className="mt-1 font-bold text-ink">{alexandraOverview.location}</dd>
               </div>
-              <div className="rounded-2xl border border-line bg-white p-5 sm:col-span-2">
+              <div className="rounded-xl border border-line bg-white p-5 sm:col-span-2">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-muted">Who it serves</dt>
                 <dd className="mt-1 font-bold text-ink">{alexandraOverview.servesWho}</dd>
               </div>
@@ -83,7 +83,7 @@ export default function AlexandraProgramme() {
           <SectionHeading eyebrow="What the programme includes" title="Support across academics, wellbeing and pathways." />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {alexandraComponents.map((c) => (
-              <div key={c.name} className="flex items-start gap-3 rounded-2xl border border-line bg-white p-5">
+              <div key={c.name} className="flex items-start gap-3 rounded-xl border border-line bg-white p-5">
                 <CheckCircle2 size={18} strokeWidth={2} className="mt-0.5 shrink-0 text-green" aria-hidden="true" />
                 <div>
                   <p className="font-bold text-ink">{c.name}</p>

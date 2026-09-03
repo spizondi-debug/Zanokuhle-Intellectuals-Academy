@@ -59,7 +59,7 @@ export default function EarlyChildhoodDevelopment() {
           <StockPhoto
             src="/images/ecd-child-painting.jpg"
             alt="A young child painting during an early-learning activity"
-            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1280}
             height={1920}
           />

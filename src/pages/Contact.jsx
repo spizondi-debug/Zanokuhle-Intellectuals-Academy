@@ -72,7 +72,7 @@ export default function Contact() {
             <StockPhoto
               src="/images/stock-contact-phone-office.jpg"
               alt="A person in business attire checking messages on a smartphone"
-              className="h-40 rounded-2xl"
+              className="h-40 rounded-xl"
               width={1281}
               height={1920}
             />

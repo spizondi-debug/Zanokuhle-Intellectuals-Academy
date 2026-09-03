@@ -146,7 +146,7 @@
   }
 
   .card {
-    @apply rounded-2xl border border-line bg-white shadow-card;
+    @apply rounded-xl border border-line bg-white shadow-card;
   }
 
   /* The site's most-repeated card pattern: a plain white tile that
@@ -154,7 +154,7 @@
      grids on most interior pages — kept here once instead of as an
      identical class string copy-pasted into every page file. */
   .card-hover {
-    @apply rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise;
+    @apply rounded-xl border border-line bg-white p-6 transition-colors hover:border-turquoise;
   }
 
   /* Standard icon tile: colour (bg-*-pale/text-*-deep) is set per usage

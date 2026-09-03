@@ -45,7 +45,7 @@ export default function About() {
           <StockPhoto
             src="/images/stock-about-learners-uniform.jpg"
             alt="Two school learners in uniform smiling"
-            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}
             height={1601}
           />
@@ -55,11 +55,11 @@ export default function About() {
       {/* Mission & vision */}
       <section className="border-y border-line bg-white section-pad">
         <div className="container-px grid gap-8 sm:grid-cols-2">
-          <div className="rounded-3xl border border-line bg-turquoise-pale/50 p-8">
+          <div className="rounded-xl border border-line bg-turquoise-pale/50 p-8">
             <p className="eyebrow">Our mission</p>
             <p className="mt-4 text-lg leading-relaxed text-ink">{mission}</p>
           </div>
-          <div className="rounded-3xl border border-line bg-blue-pale/50 p-8">
+          <div className="rounded-xl border border-line bg-blue-pale/50 p-8">
             <p className="eyebrow">Our vision</p>
             <p className="mt-4 text-lg leading-relaxed text-ink">{vision}</p>
           </div>
@@ -96,7 +96,7 @@ export default function About() {
           <div className="space-y-5">
             <Notice icon="shield" tone="blue">{SAFEGUARDING_NOTE}</Notice>
             <Notice icon="info" tone="green">{COMPLIANCE_NOTE}</Notice>
-            <div className="rounded-2xl border border-line bg-surface-50 p-6 text-sm text-body">
+            <div className="rounded-xl border border-line bg-surface-50 p-6 text-sm text-body">
               <p className="font-semibold text-ink">Registration</p>
               <p className="mt-2">NPO registration number: {REGISTRATION.npo}</p>
               <p>NPC registration number: {REGISTRATION.npc}</p>

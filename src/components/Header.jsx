@@ -27,7 +27,7 @@ function DesktopItem({ item }) {
         <ChevronDown size={14} strokeWidth={2.2} aria-hidden="true" />
       </button>
       <div className="invisible absolute left-1/2 top-full z-40 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-        <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-lift">
+        <div className="overflow-hidden rounded-xl border border-line bg-white shadow-lift">
           {item.children.map((c) => (
             <Link
               key={c.to}

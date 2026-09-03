@@ -102,7 +102,7 @@ export default function Home() {
             {focusAreas.map((a, i) => {
               const Icon = focusIcons[i]
               return (
-                <Link key={a.name} to={a.href} className="card group flex h-full flex-col p-6 transition-colors hover:border-turquoise hover:shadow-lift">
+                <Link key={a.name} to={a.href} className="card group flex h-full flex-col p-6 transition-colors hover:border-turquoise">
                   <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${focusAccents[i].bg} ${focusAccents[i].text}`}>
                     <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
                   </span>
@@ -141,7 +141,7 @@ export default function Home() {
           <StockPhoto
             src="/images/stock-featured-programme-children.jpg"
             alt="A group of children laughing together"
-            className="min-h-[16rem] rounded-3xl lg:min-h-[22rem]"
+            className="min-h-[16rem] rounded-xl lg:min-h-[22rem]"
             width={1920}
             height={1525}
           />
@@ -196,7 +196,7 @@ export default function Home() {
           <SectionHeading eyebrow="Partner with us" title="Built to work alongside funders, schools and volunteers." />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {partnerAudiences.map((p) => (
-              <div key={p.name} className="rounded-2xl border border-line bg-surface-50 p-6">
+              <div key={p.name} className="rounded-xl border border-line bg-surface-50 p-6">
                 <h3 className="font-bold text-turquoise-deep">{p.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{p.text}</p>
               </div>

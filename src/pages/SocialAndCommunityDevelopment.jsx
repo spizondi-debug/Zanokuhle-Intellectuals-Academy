@@ -65,7 +65,7 @@ export default function SocialAndCommunityDevelopment() {
           <StockPhoto
             src="/images/stock-community-playground.jpg"
             alt="A child at a community playground"
-            className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]"
+            className="min-h-[16rem] rounded-xl lg:min-h-[20rem]"
             width={1920}
             height={1280}
           />

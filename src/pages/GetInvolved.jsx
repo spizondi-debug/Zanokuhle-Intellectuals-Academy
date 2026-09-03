@@ -41,7 +41,7 @@ export default function GetInvolved() {
           <StockPhoto
             src="/images/stock-getinvolved-children-playing.jpg"
             alt="Children playing together outdoors"
-            className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]"
+            className="min-h-[16rem] rounded-xl lg:min-h-[20rem]"
             width={1536}
             height={1920}
           />

@@ -60,7 +60,7 @@ export default function News() {
           <SectionHeading eyebrow="Reports & publications" title="Where we'll publish our reporting." />
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {publications.map((p) => (
-              <div key={p.name} className="flex items-center justify-between rounded-2xl border border-line bg-surface-50 p-6">
+              <div key={p.name} className="flex items-center justify-between rounded-xl border border-line bg-surface-50 p-6">
                 <div>
                   <h3 className="font-bold text-turquoise-deep">{p.name}</h3>
                   <p className="mt-1 text-sm text-body">{p.text}</p>

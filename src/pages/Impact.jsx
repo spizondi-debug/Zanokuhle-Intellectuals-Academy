@@ -61,7 +61,7 @@ export default function Impact() {
             <SectionHeading eyebrow="How we stay accountable" title="Governance behind the numbers." />
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {accountabilityPractices.map((a) => (
-                <div key={a.name} className="rounded-2xl border border-line bg-green-pale/40 p-6">
+                <div key={a.name} className="rounded-xl border border-line bg-green-pale/40 p-6">
                   <h3 className="font-bold text-turquoise-deep">{a.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
                 </div>
@@ -71,7 +71,7 @@ export default function Impact() {
           <StockPhoto
             src="/images/stock-impact-boy-writing.jpg"
             alt="A child writing and colouring in a notebook"
-            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}
             height={1536}
           />

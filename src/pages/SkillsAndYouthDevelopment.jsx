@@ -48,7 +48,7 @@ export default function SkillsAndYouthDevelopment() {
           <StockPhoto
             src="/images/stock-skills-coding-robotics.jpg"
             alt="Young people working together on a coding and robotics project"
-            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}
             height={1280}
           />
