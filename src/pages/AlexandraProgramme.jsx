@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import Notice from '../components/Notice.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { alexandraOverview, alexandraJourney, alexandraComponents, alexandraMonitoring } from '../data/alexandra.js'
@@ -18,7 +18,11 @@ export default function AlexandraProgramme() {
       {/* Overview */}
       <section className="section-pad">
         <div className="container-px grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <PhotoPlaceholder label="Photography placeholder" tone="green" className="min-h-[16rem] rounded-3xl lg:min-h-full" />
+          <StockPhoto
+            src="stock-alexandra-classroom.jpg"
+            alt="Learners seated at desks in a classroom"
+            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+          />
           <div>
             <SectionHeading eyebrow="Overview" title="A multi-year pathway, not a once-off intervention." />
             <dl className="mt-6 grid gap-5 sm:grid-cols-2">

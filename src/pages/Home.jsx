@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, GraduationCap, BookOpen, Laptop2, Users2 } from 'lucide-react'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import { SectionHeading, Accent } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
@@ -43,9 +43,9 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <PhotoPlaceholder
-            label="Photography placeholder"
-            tone="gold"
+          <StockPhoto
+            src="stock-hero-learners-smiling.jpg"
+            alt="Children smiling together outdoors"
             className="min-h-[18rem] rounded-3xl lg:min-h-full"
           />
         </div>
@@ -106,7 +106,11 @@ export default function Home() {
       {/* Featured programme */}
       <section className="border-y border-line bg-blue-pale/40 section-pad">
         <div className="container-px grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <PhotoPlaceholder label="Photography placeholder" tone="blue" className="min-h-[16rem] rounded-3xl lg:min-h-[22rem]" />
+          <StockPhoto
+            src="stock-featured-programme-children.jpg"
+            alt="A group of children laughing together"
+            className="min-h-[16rem] rounded-3xl lg:min-h-[22rem]"
+          />
           <div>
             <p className="eyebrow">Featured programme</p>
             <h2 className="mt-4 text-section font-bold text-ink">{alexandra.name}</h2>

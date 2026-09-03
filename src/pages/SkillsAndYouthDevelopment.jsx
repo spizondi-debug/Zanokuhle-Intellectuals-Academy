@@ -2,7 +2,7 @@ import { Laptop2, Code2, Compass, Briefcase, Rocket, Trophy, Sparkles, Users2, L
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmes } from '../data/programmes.js'
 
@@ -33,7 +33,11 @@ export default function SkillsAndYouthDevelopment() {
 
       <section className="section-pad">
         <div className="container-px grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <PhotoPlaceholder label="Photography placeholder" tone="gold" className="min-h-[16rem] rounded-3xl lg:min-h-full" />
+          <StockPhoto
+            src="stock-skills-coding-robotics.jpg"
+            alt="Young people working together on a coding and robotics project"
+            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+          />
           <div>
             <SectionHeading eyebrow="What we offer" title="Skills that translate into real opportunity." />
             <div className="mt-8 grid gap-5 sm:grid-cols-2">

@@ -2,6 +2,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Notice from '../components/Notice.jsx'
 import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import { newsItems, publications } from '../data/news.js'
 
 export default function News() {
@@ -25,7 +26,11 @@ export default function News() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {newsItems.map((item) => (
               <article key={item.slug} className="card overflow-hidden">
-                <PhotoPlaceholder label="Photography placeholder" tone="green" className="h-40 w-full" />
+                {item.image ? (
+                  <StockPhoto src={item.image.src} alt={item.image.alt} className="h-40 w-full" />
+                ) : (
+                  <PhotoPlaceholder label="Photography placeholder" tone="green" className="h-40 w-full" />
+                )}
                 <div className="p-6">
                   <span className="text-[0.7rem] font-semibold uppercase tracking-wide text-blue">{item.category}</span>
                   <h3 className="mt-2 font-bold text-ink">{item.title}</h3>

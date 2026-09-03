@@ -1,7 +1,7 @@
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Notice from '../components/Notice.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import {
   story,
@@ -35,7 +35,11 @@ export default function About() {
               ))}
             </div>
           </div>
-          <PhotoPlaceholder label="Photography placeholder" tone="green" className="min-h-[16rem] rounded-3xl lg:min-h-full" />
+          <StockPhoto
+            src="stock-about-learners-uniform.jpg"
+            alt="Two school learners in uniform smiling"
+            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+          />
         </div>
       </section>
 

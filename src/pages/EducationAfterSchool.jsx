@@ -2,7 +2,7 @@ import { BookOpen, PenLine, Calculator, ClipboardCheck, UserCheck, Brain, Librar
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
 
@@ -46,7 +46,11 @@ export default function EducationAfterSchool() {
               ))}
             </div>
           </div>
-          <PhotoPlaceholder label="Photography placeholder" tone="blue" className="min-h-[16rem] rounded-3xl lg:min-h-full" />
+          <StockPhoto
+            src="stock-education-classroom-desks.jpg"
+            alt="Learners at desks in a classroom, engaged in a lesson"
+            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+          />
         </div>
       </section>
 

@@ -2,7 +2,7 @@ import { Users, HeartHandshake, GraduationCap, Scale, Megaphone, Handshake } fro
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
-import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
+import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
 
@@ -50,7 +50,11 @@ export default function SocialAndCommunityDevelopment() {
 
       <section className="border-y border-line bg-white section-pad">
         <div className="container-px">
-          <PhotoPlaceholder label="Photography placeholder" tone="green" className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]" />
+          <StockPhoto
+            src="stock-community-playground.jpg"
+            alt="A child at a community playground"
+            className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]"
+          />
         </div>
       </section>
 
