@@ -61,20 +61,20 @@ export default function Contact() {
         eyebrow="Contact us"
         title="Let's talk."
         lead="Whether you're a parent, a school, a funder or simply curious about our work, we'd like to hear from you."
-        image="/images/stock-contact-classroom-portrait.jpg"
-        imageWidth={1920}
-        imageHeight={1280}
+        image="/images/stock-contact-phone-office.jpg"
+        imageWidth={1281}
+        imageHeight={1920}
       />
 
       <section className="section-pad">
         <div className="container-px grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div className="space-y-6">
             <StockPhoto
-              src="/images/stock-contact-classroom-portrait.jpg"
-              alt="A child in a classroom setting with other children"
+              src="/images/stock-contact-phone-office.jpg"
+              alt="A person in business attire checking messages on a smartphone"
               className="h-40 rounded-2xl"
-              width={1920}
-              height={1280}
+              width={1281}
+              height={1920}
             />
             <div className="card-hover">
               <span className="icon-badge bg-turquoise-pale text-turquoise-deep">
