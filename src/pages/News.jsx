@@ -1,18 +1,24 @@
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Notice from '../components/Notice.jsx'
 import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import { newsItems, publications } from '../data/news.js'
+import { seoByPath } from '../data/seo.js'
 
 export default function News() {
+  const seo = seoByPath['/news']
   return (
     <>
+      <SEO title={seo.title} description={seo.description} path="/news" breadcrumb={seo.breadcrumb} />
       <PageHeader
         eyebrow="News & stories"
         title="What's happening at Zanokuhle."
         lead="Programme updates, learner stories, community activity and reports — published only with the right consent in place."
         image="/images/stock-news-community-hands.jpg"
+        imageWidth={1920}
+        imageHeight={1280}
       />
 
       <section className="section-pad">
@@ -28,7 +34,13 @@ export default function News() {
             {newsItems.map((item) => (
               <article key={item.slug} className="card overflow-hidden">
                 {item.image ? (
-                  <StockPhoto src={item.image.src} alt={item.image.alt} className="h-40 w-full" />
+                  <StockPhoto
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    width={item.image.width}
+                    height={item.image.height}
+                    className="h-40 w-full"
+                  />
                 ) : (
                   <PhotoPlaceholder label="Photography placeholder" tone="turquoise" className="h-40 w-full" />
                 )}

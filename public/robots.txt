@@ -1,0 +1,9 @@
+# Zanokuhle Intellectuals Academy — the entire public site is indexable;
+# there are no admin, test or duplicate-content paths to block.
+User-agent: *
+Allow: /
+
+# PLACEHOLDER — update this once the real domain is live (see
+# src/lib/siteConfig.js SITE_URL, the single source this was generated
+# from) and regenerate public/sitemap.xml to match.
+Sitemap: https://www.zanokuhleacademy.org.za/sitemap.xml

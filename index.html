@@ -10,11 +10,15 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <!--
+      Static <title> only — a pre-hydration fallback for the instant before
+      React mounts (and for anything reading the raw HTML without running
+      JS). No static <meta name="description"> here on purpose: every route
+      renders its own via src/components/SEO.jsx, and react-helmet-async
+      appends rather than replaces a tag it didn't itself render, so a
+      static one here would sit alongside the real one as a duplicate.
+    -->
     <title>Zanokuhle Intellectuals Academy</title>
-    <meta
-      name="description"
-      content="Zanokuhle Intellectuals Academy creates practical pathways for children, young people and underserved communities to learn, grow and participate in a stronger future."
-    />
   </head>
   <body>
     <div id="root"></div>

@@ -29,10 +29,18 @@
  * literal string somewhere (in a JSX prop or a data file) rather than
  * assembled at runtime by concatenation, which a minifier can split apart.
  */
-export default function StockPhoto({ src, alt, className = '' }) {
+export default function StockPhoto({ src, alt, className = '', width, height }) {
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
   )
 }

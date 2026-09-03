@@ -1,10 +1,12 @@
 import { Laptop2, Code2, Compass, Briefcase, Rocket, Trophy, Sparkles, Users2, Leaf } from 'lucide-react'
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmes } from '../data/programmes.js'
+import { seoByPath } from '../data/seo.js'
 
 const areas = [
   { icon: Laptop2, name: 'Digital literacy', text: 'Foundational, confident use of everyday digital tools.' },
@@ -22,14 +24,23 @@ const relevantSlugs = ['youth', 'skills', 'career', 'digital', 'entrepreneurship
 
 export default function SkillsAndYouthDevelopment() {
   const related = programmes.filter((p) => relevantSlugs.includes(p.category))
+  const seo = seoByPath['/programmes/skills-and-youth-development']
 
   return (
     <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        path="/programmes/skills-and-youth-development"
+        breadcrumb={seo.breadcrumb}
+      />
       <PageHeader
         eyebrow="Programme area"
         title="Skills & Youth Development."
         lead="Digital literacy, career readiness, entrepreneurship and leadership — practical skills that open real pathways beyond school."
         image="/images/stock-skills-coding-robotics.jpg"
+        imageWidth={1920}
+        imageHeight={1280}
       />
 
       <section className="section-pad">
@@ -38,6 +49,8 @@ export default function SkillsAndYouthDevelopment() {
             src="/images/stock-skills-coding-robotics.jpg"
             alt="Young people working together on a coding and robotics project"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            width={1920}
+            height={1280}
           />
           <div>
             <SectionHeading eyebrow="What we offer" title="Skills that translate into real opportunity." />

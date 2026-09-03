@@ -1,4 +1,5 @@
 import { Sprout, BookOpenText, Calculator, HeartHandshake, Users, House, ShieldCheck } from 'lucide-react'
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
@@ -7,6 +8,7 @@ import Notice from '../components/Notice.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
 import { SAFEGUARDING_NOTE } from '../data/org.js'
+import { seoByPath } from '../data/seo.js'
 
 const pillars = [
   { icon: Sprout, name: 'School readiness', text: 'Structured activities that build the readiness children need before starting formal school.' },
@@ -19,14 +21,23 @@ const pillars = [
 
 export default function EarlyChildhoodDevelopment() {
   const related = programmesIn('ecd')
+  const seo = seoByPath['/programmes/early-childhood-development']
 
   return (
     <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        path="/programmes/early-childhood-development"
+        breadcrumb={seo.breadcrumb}
+      />
       <PageHeader
         eyebrow="Programme area"
         title="Early Childhood Development."
         lead="Giving young children the early foundations they need — and supporting the practitioners, parents and caregivers around them."
         image="/images/ecd-child-painting.jpg"
+        imageWidth={1280}
+        imageHeight={1920}
       />
 
       <section className="section-pad">
@@ -49,6 +60,8 @@ export default function EarlyChildhoodDevelopment() {
             src="/images/ecd-child-painting.jpg"
             alt="A young child painting during an early-learning activity"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            width={1280}
+            height={1920}
           />
         </div>
       </section>

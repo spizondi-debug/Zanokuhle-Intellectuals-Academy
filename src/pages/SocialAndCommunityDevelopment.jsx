@@ -1,10 +1,12 @@
 import { Users, HeartHandshake, GraduationCap, Scale, Megaphone, Handshake } from 'lucide-react'
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
+import { seoByPath } from '../data/seo.js'
 
 const pillars = [
   { icon: Users, name: 'Underserved communities', text: 'Support directed toward communities most often left without consistent resources.' },
@@ -17,14 +19,23 @@ const pillars = [
 
 export default function SocialAndCommunityDevelopment() {
   const related = programmesIn('community')
+  const seo = seoByPath['/programmes/social-and-community-development']
 
   return (
     <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        path="/programmes/social-and-community-development"
+        breadcrumb={seo.breadcrumb}
+      />
       <PageHeader
         eyebrow="Programme area"
         title="Social & Community Development."
         lead="We work alongside communities — not for them — so that opportunity and support reach further than any one learner or classroom."
         image="/images/stock-community-playground.jpg"
+        imageWidth={1920}
+        imageHeight={1280}
       />
 
       <section className="section-pad">
@@ -55,6 +66,8 @@ export default function SocialAndCommunityDevelopment() {
             src="/images/stock-community-playground.jpg"
             alt="A child at a community playground"
             className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]"
+            width={1920}
+            height={1280}
           />
         </div>
       </section>

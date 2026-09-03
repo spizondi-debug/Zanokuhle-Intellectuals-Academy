@@ -41,6 +41,7 @@ export default function ProgrammeCard({ programme }) {
       <div className="mt-5 border-t border-line pt-4">
         <Link
           to={programme.href}
+          aria-label={`${programme.ctaLabel || 'Learn more'} about ${programme.name}`}
           className="group inline-flex items-center gap-1.5 text-sm font-semibold text-blue-deep hover:text-blue"
         >
           {programme.ctaLabel || 'Learn More'}

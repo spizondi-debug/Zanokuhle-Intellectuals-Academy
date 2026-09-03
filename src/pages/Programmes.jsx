@@ -1,20 +1,26 @@
 import { useState } from 'react'
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { categories, programmes } from '../data/programmes.js'
+import { seoByPath } from '../data/seo.js'
 
 export default function Programmes() {
   const [active, setActive] = useState('all')
   const shown = active === 'all' ? programmes : programmes.filter((p) => p.category === active)
+  const seo = seoByPath['/programmes']
 
   return (
     <>
+      <SEO title={seo.title} description={seo.description} path="/programmes" breadcrumb={seo.breadcrumb} />
       <PageHeader
         eyebrow="Our programmes"
         title="Practical pathways, by focus area."
         lead="Every programme is a structured response to a real gap — filter by focus area to explore what we do and who it serves."
         image="/images/stock-hero-learners-smiling.jpg"
+        imageWidth={1280}
+        imageHeight={1920}
       />
 
       <section className="section-pad">

@@ -11,13 +11,28 @@ import PhotoPlaceholder from './PhotoPlaceholder.jsx'
  * page is), hence no alt text. Falls back to the original abstract
  * PhotoPlaceholder pattern when no `image` is given. Height/padding are
  * unchanged either way — only the background layer differs.
+ *
+ * This image is the Largest Contentful Paint candidate on every page it
+ * appears on (it's the biggest thing painted, first, on every interior
+ * page), so it loads eager/high-priority rather than the lazy default
+ * StockPhoto uses for below-the-fold body images.
  */
-export default function PageHeader({ eyebrow, title, lead, image, tone = 'turquoise', children }) {
+export default function PageHeader({ eyebrow, title, lead, image, imageWidth, imageHeight, tone = 'turquoise', children }) {
   return (
     <section className="relative overflow-hidden bg-turquoise-deep">
       {image ? (
         <>
-          <img src={image} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+          <img
+            src={image}
+            alt=""
+            aria-hidden="true"
+            width={imageWidth}
+            height={imageHeight}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
           <div className="absolute inset-0 bg-turquoise-deep/85" aria-hidden="true" />
         </>
       ) : (

@@ -16,6 +16,8 @@ export default function Logo({ className = '' }) {
       <img
         src="/images/zanokuhle-logo.png"
         alt="Zanokuhle Intellectuals Academy"
+        width={600}
+        height={575}
         className="h-11 w-auto sm:h-12"
       />
     </picture>

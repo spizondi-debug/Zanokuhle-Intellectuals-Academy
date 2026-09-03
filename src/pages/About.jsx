@@ -1,8 +1,10 @@
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Notice from '../components/Notice.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
+import { seoByPath } from '../data/seo.js'
 import {
   story,
   mission,
@@ -16,13 +18,17 @@ import {
 } from '../data/org.js'
 
 export default function About() {
+  const seo = seoByPath['/about']
   return (
     <>
+      <SEO title={seo.title} description={seo.description} path="/about" pageType="AboutPage" breadcrumb={seo.breadcrumb} />
       <PageHeader
         eyebrow="About Zanokuhle"
         title="Who we are."
         lead="A South African Non-Profit Organisation and Non-Profit Company building practical pathways in learning, opportunity and community."
         image="/images/stock-contact-classroom-portrait.jpg"
+        imageWidth={1920}
+        imageHeight={1280}
       />
 
       {/* Story */}
@@ -40,6 +46,8 @@ export default function About() {
             src="/images/stock-about-learners-uniform.jpg"
             alt="Two school learners in uniform smiling"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            width={1920}
+            height={1601}
           />
         </div>
       </section>

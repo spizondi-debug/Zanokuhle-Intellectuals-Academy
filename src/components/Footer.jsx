@@ -4,6 +4,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon } from './SocialIcons.jsx'
 import Logo from './Logo.jsx'
 import { footerNav } from '../data/nav.js'
 import { CONTACT, REGISTRATION, SOCIALS } from '../data/org.js'
+import { trackEvent } from '../lib/analytics.js'
 
 export default function Footer() {
   return (
@@ -51,11 +52,23 @@ export default function Footer() {
         <div className="mt-12 grid gap-4 border-t border-white/10 pt-8 text-sm text-white/70 sm:grid-cols-3">
           <div className="flex items-start gap-2.5">
             <Mail size={16} className="mt-0.5 shrink-0 text-yellow" aria-hidden="true" />
-            <a href={`mailto:${CONTACT.email}`} className="hover:text-turquoise-light">{CONTACT.email}</a>
+            <a
+              href={`mailto:${CONTACT.email}`}
+              onClick={() => trackEvent('email_click', { link_location: 'footer' })}
+              className="hover:text-turquoise-light"
+            >
+              {CONTACT.email}
+            </a>
           </div>
           <div className="flex items-start gap-2.5">
             <Phone size={16} className="mt-0.5 shrink-0 text-yellow" aria-hidden="true" />
-            <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="hover:text-turquoise-light">{CONTACT.phone}</a>
+            <a
+              href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}
+              onClick={() => trackEvent('phone_click', { link_location: 'footer' })}
+              className="hover:text-turquoise-light"
+            >
+              {CONTACT.phone}
+            </a>
           </div>
           <div className="flex items-start gap-2.5">
             <MapPin size={16} className="mt-0.5 shrink-0 text-yellow" aria-hidden="true" />

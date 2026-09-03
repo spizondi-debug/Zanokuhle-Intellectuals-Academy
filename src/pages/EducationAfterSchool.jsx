@@ -1,10 +1,12 @@
 import { BookOpen, PenLine, Calculator, ClipboardCheck, UserCheck, Brain, Library, Handshake } from 'lucide-react'
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
+import { seoByPath } from '../data/seo.js'
 
 const offerings = [
   { icon: BookOpen, name: 'Tutoring', text: 'Regular, subject-focused tutoring aligned to the school curriculum.' },
@@ -19,14 +21,18 @@ const offerings = [
 
 export default function EducationAfterSchool() {
   const related = programmesIn('education')
+  const seo = seoByPath['/programmes/education-after-school']
 
   return (
     <>
+      <SEO title={seo.title} description={seo.description} path="/programmes/education-after-school" breadcrumb={seo.breadcrumb} />
       <PageHeader
         eyebrow="Programme area"
         title="Education & After-School Programmes."
         lead="Consistent academic support that keeps learners progressing — tutoring, homework support, mentorship and the resources behind them."
         image="/images/stock-education-classroom-desks.jpg"
+        imageWidth={1920}
+        imageHeight={1080}
       />
 
       <section className="section-pad">
@@ -51,6 +57,8 @@ export default function EducationAfterSchool() {
             src="/images/stock-education-classroom-desks.jpg"
             alt="Learners at desks in a classroom, engaged in a lesson"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            width={1920}
+            height={1080}
           />
         </div>
       </section>

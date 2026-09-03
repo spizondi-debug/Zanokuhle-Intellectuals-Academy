@@ -1,10 +1,12 @@
 import { TrendingUp } from 'lucide-react'
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Notice from '../components/Notice.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { impactAreas, accountabilityPractices, impactStatement } from '../data/impact.js'
+import { seoByPath } from '../data/seo.js'
 
 // Rotates across the tracked-progress cards — kept as complete literal
 // class names (not built from a template) so Tailwind's content scanner
@@ -16,13 +18,17 @@ const impactAccents = [
 ]
 
 export default function Impact() {
+  const seo = seoByPath['/impact']
   return (
     <>
+      <SEO title={seo.title} description={seo.description} path="/impact" breadcrumb={seo.breadcrumb} />
       <PageHeader
         eyebrow="Impact & accountability"
         title="How we measure and report our work."
         lead="Real accountability means describing what we track honestly — including where we don't yet have a confirmed figure to share."
         image="/images/stock-impact-boy-writing.jpg"
+        imageWidth={1920}
+        imageHeight={1536}
       />
 
       <section className="section-pad">
@@ -66,6 +72,8 @@ export default function Impact() {
             src="/images/stock-impact-boy-writing.jpg"
             alt="A child writing and colouring in a notebook"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            width={1920}
+            height={1536}
           />
         </div>
       </section>

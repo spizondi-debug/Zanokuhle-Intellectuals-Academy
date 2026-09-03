@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, GraduationCap, BookOpen, Laptop2, Users2, TrendingUp } from 'lucide-react'
+import SEO from '../components/SEO.jsx'
+import { seoByPath } from '../data/seo.js'
 import StockPhoto from '../components/StockPhoto.jsx'
 import { SectionHeading, Accent } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
@@ -38,8 +40,10 @@ const partnerAudiences = [
 ]
 
 export default function Home() {
+  const seo = seoByPath['/']
   return (
     <>
+      <SEO title={seo.title} description={seo.description} path="/" />
       {/* Hero — the same hero photo, now used as a full-bleed background
           behind a solid turquoise-deep/85 tint (not a gradient) so white
           text stays reliably legible across the whole photo, not just
@@ -49,6 +53,11 @@ export default function Home() {
           src="/images/stock-hero-learners-smiling.jpg"
           alt=""
           aria-hidden="true"
+          width={1280}
+          height={1920}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-turquoise-deep/85" aria-hidden="true" />
@@ -133,6 +142,8 @@ export default function Home() {
             src="/images/stock-featured-programme-children.jpg"
             alt="A group of children laughing together"
             className="min-h-[16rem] rounded-3xl lg:min-h-[22rem]"
+            width={1920}
+            height={1525}
           />
           <div>
             <p className="eyebrow">Featured programme</p>

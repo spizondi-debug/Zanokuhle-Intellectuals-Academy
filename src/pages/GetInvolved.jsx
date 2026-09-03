@@ -1,18 +1,24 @@
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 import Notice from '../components/Notice.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import { involvementPathways, enquiryTypes, donationNote } from '../data/getInvolved.js'
+import { seoByPath } from '../data/seo.js'
 
 export default function GetInvolved() {
+  const seo = seoByPath['/get-involved']
   return (
     <>
+      <SEO title={seo.title} description={seo.description} path="/get-involved" breadcrumb={seo.breadcrumb} />
       <PageHeader
         eyebrow="Get involved"
         title="There is a role here for you."
         lead="Whether you give, partner, volunteer or open a door for a young person, your support becomes a real, structured pathway — not a one-off gesture."
         image="/images/stock-getinvolved-children-playing.jpg"
+        imageWidth={1536}
+        imageHeight={1920}
       />
 
       <section className="section-pad">
@@ -36,6 +42,8 @@ export default function GetInvolved() {
             src="/images/stock-getinvolved-children-playing.jpg"
             alt="Children playing together outdoors"
             className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]"
+            width={1536}
+            height={1920}
           />
         </div>
       </section>
@@ -52,7 +60,7 @@ export default function GetInvolved() {
               <Notice icon="info" tone="green">{donationNote}</Notice>
             </div>
           </div>
-          <EnquiryForm enquiryTypes={enquiryTypes} submitLabel="Send Enquiry" />
+          <EnquiryForm enquiryTypes={enquiryTypes} submitLabel="Send Enquiry" formName="get_involved" />
         </div>
       </section>
     </>

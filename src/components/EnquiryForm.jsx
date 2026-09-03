@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CheckCircle2 } from 'lucide-react'
 import { privacyConsentNote } from '../data/getInvolved.js'
+import { trackEvent } from '../lib/analytics.js'
 
 /**
  * EnquiryForm — a client-only enquiry form.
@@ -8,15 +9,20 @@ import { privacyConsentNote } from '../data/getInvolved.js'
  * No backend or payment processor is wired up. Submitting shows a
  * confirmation state so the flow reads as finished rather than broken; a
  * real deployment needs this pointed at a form endpoint, email service or
- * CRM before launch.
+ * CRM before launch. The GA4 `form_submit` event (see src/lib/analytics.js)
+ * fires on this same client-side "success" state, so conversion tracking
+ * is already wired in and starts reporting the moment a real GA4
+ * Measurement ID is supplied — see GoogleAnalytics.jsx.
  */
-export default function EnquiryForm({ enquiryTypes, defaultType, submitLabel = 'Send Enquiry' }) {
+export default function EnquiryForm({ enquiryTypes, defaultType, submitLabel = 'Send Enquiry', formName = 'enquiry' }) {
   const [submitted, setSubmitted] = useState(false)
   const [consent, setConsent] = useState(false)
 
   const onSubmit = (e) => {
     e.preventDefault()
     if (!consent) return
+    const enquiryType = e.target.elements.enquiryType?.value || defaultType || 'general'
+    trackEvent('form_submit', { form_name: formName, enquiry_type: enquiryType })
     setSubmitted(true)
   }
 

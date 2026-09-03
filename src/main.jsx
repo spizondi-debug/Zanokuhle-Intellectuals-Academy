@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, HashRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
 import App from './App.jsx'
 
@@ -12,14 +13,16 @@ const isHash = import.meta.env.VITE_HASH_ROUTER === '1'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {isHash ? (
-      <HashRouter>
-        <App />
-      </HashRouter>
-    ) : (
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    )}
+    <HelmetProvider>
+      {isHash ? (
+        <HashRouter>
+          <App />
+        </HashRouter>
+      ) : (
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      )}
+    </HelmetProvider>
   </StrictMode>,
 )

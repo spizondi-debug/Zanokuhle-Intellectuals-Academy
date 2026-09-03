@@ -1,19 +1,30 @@
 import { CheckCircle2 } from 'lucide-react'
+import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import Notice from '../components/Notice.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { alexandraOverview, alexandraJourney, alexandraComponents, alexandraMonitoring } from '../data/alexandra.js'
+import { seoByPath } from '../data/seo.js'
 
 export default function AlexandraProgramme() {
+  const seo = seoByPath['/programmes/alexandra-learner-advancement']
   return (
     <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        path="/programmes/alexandra-learner-advancement"
+        breadcrumb={seo.breadcrumb}
+      />
       <PageHeader
         eyebrow={`Flagship programme · ${alexandraOverview.duration}`}
         title="Alexandra Learner Advancement Programme."
         lead={alexandraOverview.summary}
         image="/images/stock-alexandra-classroom.jpg"
+        imageWidth={1920}
+        imageHeight={1278}
       />
 
       {/* Overview */}
@@ -23,6 +34,8 @@ export default function AlexandraProgramme() {
             src="/images/stock-alexandra-classroom.jpg"
             alt="Learners seated at desks in a classroom"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
+            width={1920}
+            height={1278}
           />
           <div>
             <SectionHeading eyebrow="Overview" title="A multi-year pathway, not a once-off intervention." />
