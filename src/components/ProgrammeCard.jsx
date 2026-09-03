@@ -6,7 +6,7 @@ export default function ProgrammeCard({ programme }) {
   const categoryLabel = categories.find((c) => c.slug === programme.category)?.label
 
   return (
-    <div className="card flex h-full flex-col p-6">
+    <div className="card flex h-full flex-col p-6 transition-colors hover:border-turquoise">
       <div className="flex items-center gap-2">
         {programme.flagship && (
           <span className="rounded-full bg-purple-pale px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-purple-deep">
@@ -41,7 +41,7 @@ export default function ProgrammeCard({ programme }) {
       <div className="mt-5 border-t border-line pt-4">
         <Link
           to={programme.href}
-          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-turquoise-deep hover:text-turquoise"
+          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-blue-deep hover:text-blue"
         >
           {programme.ctaLabel || 'Learn More'}
           <ArrowRight size={15} strokeWidth={2.2} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />

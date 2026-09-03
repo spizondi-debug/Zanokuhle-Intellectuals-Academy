@@ -36,7 +36,7 @@ export default function SocialAndCommunityDevelopment() {
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {pillars.map((p) => (
-              <div key={p.name} className="rounded-2xl border border-line bg-white p-6">
+              <div key={p.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
                 <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-pink-pale text-pink-deep">
                   <p.icon size={18} strokeWidth={1.8} aria-hidden="true" />
                 </span>

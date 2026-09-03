@@ -18,7 +18,7 @@ export default function GetInvolved() {
           <SectionHeading eyebrow="Ways to support Zanokuhle" title="Choose the way that fits you." />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {involvementPathways.map((p) => (
-              <div key={p.id} id={p.id} className="scroll-mt-28 rounded-2xl border border-line bg-white p-6">
+              <div key={p.id} id={p.id} className="scroll-mt-28 rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
                 <span className="text-[0.7rem] font-semibold uppercase tracking-wide text-blue">{p.audience}</span>
                 <h3 className="mt-2 font-bold text-ink">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{p.text}</p>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, GraduationCap, BookOpen, Laptop2, Users2 } from 'lucide-react'
+import { ArrowRight, GraduationCap, BookOpen, Laptop2, Users2, TrendingUp } from 'lucide-react'
 import StockPhoto from '../components/StockPhoto.jsx'
 import { SectionHeading, Accent } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
@@ -18,6 +18,14 @@ const focusAccents = [
   { bg: 'bg-blue-pale', text: 'text-blue-deep' },
   { bg: 'bg-orange-pale', text: 'text-orange-deep' },
   { bg: 'bg-pink-pale', text: 'text-pink-deep' },
+]
+// Rotates across the tracked-progress cards — kept as complete literal
+// class names (not built from a template) so Tailwind's content scanner
+// finds them.
+const impactAccents = [
+  { bg: 'bg-turquoise-pale', text: 'text-turquoise-deep' },
+  { bg: 'bg-blue-pale', text: 'text-blue-deep' },
+  { bg: 'bg-green-pale', text: 'text-green-deep' },
 ]
 
 const alexandra = programmes.find((p) => p.slug === 'alexandra-learner-advancement')
@@ -45,7 +53,7 @@ export default function Home() {
               underserved communities to learn, grow and participate in a stronger future.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/get-involved" className="btn bg-white text-turquoise-deep shadow-soft hover:bg-surface-100">
+              <Link to="/get-involved" className="btn bg-white text-blue-deep shadow-soft hover:bg-surface-100">
                 Support Our Work
               </Link>
               <Link to="/programmes" className="btn btn-outline-light">
@@ -80,13 +88,13 @@ export default function Home() {
             {focusAreas.map((a, i) => {
               const Icon = focusIcons[i]
               return (
-                <Link key={a.name} to={a.href} className="card group flex h-full flex-col p-6 transition-shadow hover:shadow-lift">
+                <Link key={a.name} to={a.href} className="card group flex h-full flex-col p-6 transition-colors hover:border-turquoise hover:shadow-lift">
                   <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${focusAccents[i].bg} ${focusAccents[i].text}`}>
                     <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 font-bold text-ink">{a.name}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-body">{a.text}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-turquoise-deep">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-deep">
                     Learn more
                     <ArrowRight size={14} strokeWidth={2.2} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </span>
@@ -149,14 +157,17 @@ export default function Home() {
             lead="We report honestly on what we measure — not on figures we haven't yet confirmed. Here is what we track across our programmes."
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {impactAreas.slice(0, 3).map((a) => (
-              <div key={a.name} className="rounded-2xl border border-line bg-white p-6">
-                <h3 className="font-bold text-ink">{a.name}</h3>
+            {impactAreas.slice(0, 3).map((a, i) => (
+              <div key={a.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
+                <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${impactAccents[i].bg} ${impactAccents[i].text}`}>
+                  <TrendingUp size={16} strokeWidth={1.8} aria-hidden="true" />
+                </span>
+                <h3 className="mt-3 font-bold text-ink">{a.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
               </div>
             ))}
           </div>
-          <Link to="/impact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-turquoise-deep hover:text-turquoise">
+          <Link to="/impact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-deep hover:text-blue">
             See our full approach to impact and accountability
             <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
           </Link>

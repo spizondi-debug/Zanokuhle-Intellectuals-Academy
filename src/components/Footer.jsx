@@ -8,6 +8,7 @@ import { CONTACT, REGISTRATION, SOCIALS } from '../data/org.js'
 export default function Footer() {
   return (
     <footer className="bg-ink text-white/80">
+      <div className="h-1 bg-turquoise" aria-hidden="true" />
       <div className="container-px py-14 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_2fr]">
           <div>
@@ -36,7 +37,7 @@ export default function Footer() {
                 <ul className="mt-4 space-y-2.5">
                   {group.links.map((l) => (
                     <li key={l.label}>
-                      <Link to={l.to} className="text-sm text-white/75 hover:text-white">
+                      <Link to={l.to} className="text-sm text-white/75 hover:text-turquoise-light">
                         {l.label}
                       </Link>
                     </li>
@@ -50,11 +51,11 @@ export default function Footer() {
         <div className="mt-12 grid gap-4 border-t border-white/10 pt-8 text-sm text-white/70 sm:grid-cols-3">
           <div className="flex items-start gap-2.5">
             <Mail size={16} className="mt-0.5 shrink-0 text-yellow" aria-hidden="true" />
-            <a href={`mailto:${CONTACT.email}`} className="hover:text-white">{CONTACT.email}</a>
+            <a href={`mailto:${CONTACT.email}`} className="hover:text-turquoise-light">{CONTACT.email}</a>
           </div>
           <div className="flex items-start gap-2.5">
             <Phone size={16} className="mt-0.5 shrink-0 text-yellow" aria-hidden="true" />
-            <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="hover:text-white">{CONTACT.phone}</a>
+            <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="hover:text-turquoise-light">{CONTACT.phone}</a>
           </div>
           <div className="flex items-start gap-2.5">
             <MapPin size={16} className="mt-0.5 shrink-0 text-yellow" aria-hidden="true" />

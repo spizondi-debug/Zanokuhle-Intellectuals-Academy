@@ -19,6 +19,14 @@ export function SectionHeading({ eyebrow, title, lead, light = false, center = f
   const colour = light ? 'text-white' : tone === 'turquoise' ? 'text-turquoise-deep' : 'text-ink'
   return (
     <div className={`max-w-2xl ${center ? 'mx-auto text-center' : ''}`}>
+      {/* A small turquoise accent bar marks the start of every section
+          heading — a consistent, low-key "section accent" rather than a
+          colour applied inconsistently page to page. Skipped on dark
+          (`light`) backgrounds, which already carry the brand colour as
+          their fill. */}
+      {!light && (
+        <span className={`mb-3 block h-1 w-9 rounded-full bg-turquoise ${center ? 'mx-auto' : ''}`} aria-hidden="true" />
+      )}
       {eyebrow && <Eyebrow light={light}>{eyebrow}</Eyebrow>}
       <h2 className={`font-sans text-section font-bold ${eyebrow ? 'mt-4' : ''} ${colour}`}>{title}</h2>
       {lead && <p className={`mt-4 text-lg leading-relaxed ${light ? 'text-white/90' : 'text-body'}`}>{lead}</p>}

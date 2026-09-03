@@ -10,7 +10,9 @@ function DesktopItem({ item }) {
       <NavLink
         to={item.to}
         className={({ isActive }) =>
-          `text-sm font-semibold transition-colors hover:text-turquoise-deep ${isActive ? 'text-turquoise-deep' : 'text-ink'}`
+          `border-b-2 pb-0.5 text-sm font-semibold transition-colors hover:border-turquoise hover:text-turquoise-deep ${
+            isActive ? 'border-blue-deep text-blue-deep' : 'border-transparent text-ink'
+          }`
         }
       >
         {item.label}

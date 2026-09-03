@@ -23,7 +23,7 @@ export default function Programmes() {
               type="button"
               onClick={() => setActive('all')}
               className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-                active === 'all' ? 'border-green bg-green text-white' : 'border-line bg-white text-body hover:border-green'
+                active === 'all' ? 'border-purple bg-purple text-white' : 'border-line bg-white text-body hover:border-purple'
               }`}
             >
               All Programmes
@@ -34,7 +34,7 @@ export default function Programmes() {
                 type="button"
                 onClick={() => setActive(c.slug)}
                 className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-                  active === c.slug ? 'border-green bg-green text-white' : 'border-line bg-white text-body hover:border-green'
+                  active === c.slug ? 'border-purple bg-purple text-white' : 'border-line bg-white text-body hover:border-purple'
                 }`}
               >
                 {c.label}

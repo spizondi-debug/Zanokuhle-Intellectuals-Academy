@@ -63,7 +63,7 @@ export default function About() {
           <SectionHeading eyebrow="Our values" title="What guides how we work." />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((v, i) => (
-              <div key={v.name} className="rounded-2xl border border-line bg-white p-6">
+              <div key={v.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
                 <span className="text-xs font-bold text-blue">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="mt-2 font-bold text-ink">{v.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{v.text}</p>

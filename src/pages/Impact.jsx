@@ -1,8 +1,18 @@
+import { TrendingUp } from 'lucide-react'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Notice from '../components/Notice.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { impactAreas, accountabilityPractices, impactStatement } from '../data/impact.js'
+
+// Rotates across the tracked-progress cards — kept as complete literal
+// class names (not built from a template) so Tailwind's content scanner
+// finds them.
+const impactAccents = [
+  { bg: 'bg-turquoise-pale', text: 'text-turquoise-deep' },
+  { bg: 'bg-blue-pale', text: 'text-blue-deep' },
+  { bg: 'bg-green-pale', text: 'text-green-deep' },
+]
 
 export default function Impact() {
   return (
@@ -20,9 +30,12 @@ export default function Impact() {
           <div className="mt-12">
             <SectionHeading eyebrow="What we track" title="The categories behind every programme report." />
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {impactAreas.map((a) => (
-                <div key={a.name} className="rounded-2xl border border-line bg-white p-6">
-                  <h3 className="font-bold text-ink">{a.name}</h3>
+              {impactAreas.map((a, i) => (
+                <div key={a.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
+                  <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${impactAccents[i % 3].bg} ${impactAccents[i % 3].text}`}>
+                    <TrendingUp size={16} strokeWidth={1.8} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 font-bold text-ink">{a.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
                   <p className="mt-4 rounded-lg bg-surface-100 px-3 py-2 text-xs font-semibold text-muted">
                     Figures to be added once confirmed

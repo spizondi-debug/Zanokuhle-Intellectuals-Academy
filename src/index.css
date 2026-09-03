@@ -11,22 +11,38 @@
  * modifiers like `bg-turquoise-pale/50` working.
  *
  * Roles (see tailwind.config.js for the full contrast-audit notes):
- *  - turquoise + blue: primary actions — buttons, links, nav highlights.
- *  - green: success states, positive/selected highlights only.
+ *  - turquoise: key backgrounds (hero, page headers, CTA bands), nav
+ *    hover highlights, icon badges, borders, section accent bars, and
+ *    hover/selected card borders.
+ *  - blue: primary buttons, all text links, the current-page nav
+ *    indicator, and section eyebrows.
+ *  - green: success states, positive/compliance notices, checkmarks and
+ *    outcome bullets, and the Programmes page's selected filter — never
+ *    a general brand colour.
  *  - yellow / orange / pink / purple: sparing accents — a single small
- *    badge, icon or eyebrow at a time, never a large fill.
+ *    badge, icon or eyebrow at a time, never a large fill. Orange reads
+ *    as the youth/skills-development accent; pink/purple mark specific
+ *    programme categories (e.g. the Flagship badge).
  *  - ink / body / muted: deep navy-charcoal text, not the old warm greys.
+ *  - line / surface-*: a barely-tinted turquoise-grey (not neutral grey)
+ *    for hairline borders and subtle panel backgrounds, so even the
+ *    "quiet" 60% of the page reads as part of the same identity.
+ *
+ * Target balance across a page (a guideline, not a literal pixel count):
+ * roughly 60% white/pale background, 20% turquoise+blue, 10% green,
+ * 10% yellow+orange+pink+purple combined. Keep large fills to
+ * turquoise/blue and pale tints; save the warm accents for small details.
  */
 :root {
   --color-white: 255 255 255;
   --color-ink: 17 22 34;
   --color-body: 60 70 93;
   --color-muted: 92 102 122;
-  --color-line: 222 226 232;
-  --color-surface-50: 247 248 250;
-  --color-surface-100: 240 242 245;
-  --color-surface-200: 227 231 237;
-  --color-surface-300: 203 210 220;
+  --color-line: 222 232 232;
+  --color-surface-50: 247 250 250;
+  --color-surface-100: 240 245 245;
+  --color-surface-200: 227 237 237;
+  --color-surface-300: 203 220 220;
 
   --color-turquoise: 31 111 98;
   --color-turquoise-deep: 22 80 70;
@@ -94,10 +110,10 @@
            focus-visible:outline-offset-2 focus-visible:outline-blue-deep;
   }
   .btn-primary {
-    @apply bg-turquoise text-white shadow-soft hover:bg-turquoise-deep;
+    @apply bg-blue text-white shadow-soft hover:bg-blue-deep;
   }
   .btn-secondary {
-    @apply bg-blue text-white shadow-soft hover:bg-blue-deep;
+    @apply bg-turquoise text-white shadow-soft hover:bg-turquoise-deep;
   }
   .btn-outline {
     @apply border border-line bg-white text-ink hover:border-turquoise hover:text-turquoise-deep;

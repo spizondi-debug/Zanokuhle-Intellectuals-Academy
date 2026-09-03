@@ -10,9 +10,11 @@
  * Palette derivation: `turquoise` (H172°) and `blue` (H213°) are sampled
  * directly from the puzzle-piece hues in the real logo
  * (public/images/zanokuhle-logo.png) — this is the same pair the site
- * already used under the names `green`/`blue`; they're renamed here only
- * because the brief calls for turquoise and blue as the two primary
- * action colours, with `green` reserved for success/positive states.
+ * already used under the names `green`/`blue`; they're renamed here
+ * because the brief calls for turquoise and blue as the two dominant
+ * brand colours (turquoise for backgrounds/nav/icons/borders, blue for
+ * buttons/links/active states), with `green` reserved for success/
+ * positive states only.
  * `green` (H128°), `yellow` (H50-54°), `orange` (H27°), `pink` (H340°) and
  * `purple` (H288°) are newly sampled from the logo's other puzzle pieces
  * (a lime-green, a bright yellow, a red-orange, a magenta-pink and an
@@ -30,9 +32,19 @@
  * "yellow". Re-verify all of this (see /root's WCAG relative-luminance
  * formula) if any value changes.
  *
- * Neutrals (`ink`/`body`/`muted`/`line`/`surface-*`) are deep navy-charcoal
- * and cool greys — chosen to read as an education/trust identity, not the
- * warm "sand" neutrals this site started with.
+ * Neutrals (`ink`/`body`/`muted`) are deep navy-charcoal, not the warm
+ * "sand" this site started with. `line`/`surface-*` carry a barely-visible
+ * turquoise tint (hue shifted from neutral grey to H180°, lightness and
+ * saturation unchanged so contrast is unaffected) rather than pure grey,
+ * so borders and panel backgrounds read as part of the same identity
+ * without drawing attention to themselves.
+ *
+ * Role summary (this is the system every page follows, see src/index.css
+ * for the full breakdown and the 60/20/10/10 balance guideline):
+ * turquoise → backgrounds, nav hover, icons, borders, section accents,
+ * hover/selected cards. blue → primary buttons, links, active nav, section
+ * eyebrows. green → success/positive states only. yellow/orange/pink/
+ * purple → sparing badge/icon accents.
  *
  * @type {import('tailwindcss').Config}
  */
