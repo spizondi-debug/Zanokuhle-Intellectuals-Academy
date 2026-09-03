@@ -58,8 +58,8 @@ export default function Contact() {
               <p className="mt-1 font-bold text-ink">{CONTACT.addressLines.join(', ')}</p>
             </div>
             <p className="text-xs leading-relaxed text-muted">
-              Contact details above are placeholders pending confirmation and should be updated with
-              Zanokuhle's live details before this site goes public.
+              The email address above is a placeholder pending confirmation and should be updated with
+              Zanokuhle's live inbox before this site goes public.
             </p>
           </div>
 

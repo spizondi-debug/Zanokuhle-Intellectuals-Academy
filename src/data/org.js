@@ -11,11 +11,10 @@ export const REGISTRATION = {
   npc: '2022/619121/08',
 }
 
-// PLACEHOLDER — confirm before launch.
 export const CONTACT = {
-  email: 'info@zanokuhleacademy.org.za',
-  phone: '+27 00 000 0000',
-  addressLines: ['Alexandra, Johannesburg', 'Gauteng, South Africa'],
+  email: 'info@zanokuhleacademy.org.za', // PLACEHOLDER — confirm before launch.
+  phone: '010 065 0822',
+  addressLines: ['64 Hill St, Ferndale', 'Randburg, 2194'],
 }
 
 export const SOCIALS = {
