@@ -51,7 +51,7 @@ export default function SocialAndCommunityDevelopment() {
       <section className="border-y border-line bg-white section-pad">
         <div className="container-px">
           <StockPhoto
-            src="stock-community-playground.jpg"
+            src="/images/stock-community-playground.jpg"
             alt="A child at a community playground"
             className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]"
           />

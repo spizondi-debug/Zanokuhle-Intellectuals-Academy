@@ -34,7 +34,7 @@ export default function SkillsAndYouthDevelopment() {
       <section className="section-pad">
         <div className="container-px grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <StockPhoto
-            src="stock-skills-coding-robotics.jpg"
+            src="/images/stock-skills-coding-robotics.jpg"
             alt="Young people working together on a coding and robotics project"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
           />

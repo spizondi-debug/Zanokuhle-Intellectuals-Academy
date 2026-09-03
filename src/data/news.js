@@ -18,7 +18,7 @@ export const newsItems = [
     excerpt: 'A short update on programme activity goes here once confirmed. Replace this placeholder before publishing.',
     // Generic stock/reference image, not a Zanokuhle photograph — safe as
     // scene-setting for a programme-activity update. See StockPhoto.jsx.
-    image: { src: 'stock-news-lego-hands.jpg', alt: 'Hands assembling a robotics kit' },
+    image: { src: '/images/stock-news-lego-hands.jpg', alt: 'Hands assembling a robotics kit' },
   },
   {
     slug: 'placeholder-learner-story',
@@ -37,7 +37,7 @@ export const newsItems = [
     title: 'Community activity — content to be added',
     date: null,
     excerpt: 'A short recap of a community activity or event goes here once confirmed. Replace this placeholder before publishing.',
-    image: { src: 'stock-news-community-hands.jpg', alt: 'A group of children reaching out together' },
+    image: { src: '/images/stock-news-community-hands.jpg', alt: 'A group of children reaching out together' },
   },
   {
     slug: 'placeholder-partner-announcement',
@@ -45,7 +45,7 @@ export const newsItems = [
     title: 'Partner announcement — content to be added',
     date: null,
     excerpt: 'A partner or funding announcement goes here once confirmed by both parties. Replace this placeholder before publishing.',
-    image: { src: 'stock-news-robot-car.jpg', alt: 'A small robotics project built by learners' },
+    image: { src: '/images/stock-news-robot-car.jpg', alt: 'A small robotics project built by learners' },
   },
 ]
 

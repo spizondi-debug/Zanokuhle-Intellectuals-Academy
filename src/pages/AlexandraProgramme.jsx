@@ -19,7 +19,7 @@ export default function AlexandraProgramme() {
       <section className="section-pad">
         <div className="container-px grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <StockPhoto
-            src="stock-alexandra-classroom.jpg"
+            src="/images/stock-alexandra-classroom.jpg"
             alt="Learners seated at desks in a classroom"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
           />

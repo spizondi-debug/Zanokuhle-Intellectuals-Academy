@@ -36,7 +36,7 @@ export default function About() {
             </div>
           </div>
           <StockPhoto
-            src="stock-about-learners-uniform.jpg"
+            src="/images/stock-about-learners-uniform.jpg"
             alt="Two school learners in uniform smiling"
             className="min-h-[16rem] rounded-3xl lg:min-h-full"
           />

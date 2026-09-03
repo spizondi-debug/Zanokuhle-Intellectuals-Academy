@@ -44,7 +44,7 @@ export default function Home() {
             </div>
           </div>
           <StockPhoto
-            src="stock-hero-learners-smiling.jpg"
+            src="/images/stock-hero-learners-smiling.jpg"
             alt="Children smiling together outdoors"
             className="min-h-[18rem] rounded-3xl lg:min-h-full"
           />
@@ -107,7 +107,7 @@ export default function Home() {
       <section className="border-y border-line bg-blue-pale/40 section-pad">
         <div className="container-px grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <StockPhoto
-            src="stock-featured-programme-children.jpg"
+            src="/images/stock-featured-programme-children.jpg"
             alt="A group of children laughing together"
             className="min-h-[16rem] rounded-3xl lg:min-h-[22rem]"
           />

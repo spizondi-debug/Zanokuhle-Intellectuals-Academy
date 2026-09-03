@@ -10,11 +10,18 @@
  * Replace with real, consented Zanokuhle photography as it becomes
  * available; PhotoPlaceholder remains the right choice for any slot that
  * doesn't yet have a suitable photo at all.
+ *
+ * `src` takes the full path (e.g. "/images/stock-hero-learners-smiling.jpg"),
+ * not just a filename — scripts/build-preview.mjs finds and inlines every
+ * "/images/<file>" reference in the built output as a data URI for the
+ * standalone preview, which only works if that full path exists as one
+ * literal string somewhere (in a JSX prop or a data file) rather than
+ * assembled at runtime by concatenation, which a minifier can split apart.
  */
 export default function StockPhoto({ src, alt, className = '' }) {
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <img src={`/images/${src}`} alt={alt} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      <img src={src} alt={alt} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
     </div>
   )
 }
