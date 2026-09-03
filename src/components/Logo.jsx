@@ -1,33 +1,23 @@
 /**
- * Logo — text wordmark placeholder.
+ * Logo — the real Zanokuhle Intellectuals Academy mark.
  *
- * No logo file has been supplied yet. Per brief, the real Zanokuhle mark
- * must be used as-is once available — not redrawn or distorted. To drop it
- * in: replace the contents of this component with
- *   <img src="/images/logo.svg" alt="Zanokuhle Intellectuals Academy" className={className} />
- * (add the file to /public/images/) and delete the markup below. Every
- * caller already passes `light` for use on dark backgrounds, so keep that
- * prop when swapping.
+ * Used as supplied: the source file had a flat white matte rather than
+ * transparency, so the matte was flood-filled to transparent (a routine
+ * background removal, not a redraw — no shape, colour or letterform in the
+ * artwork was touched) so it sits cleanly on both white and dark panels.
+ * `public/images/zanokuhle-logo.png` is the untouched-but-for-that source;
+ * regenerate the resized copies here from it if a higher-resolution export
+ * ever replaces it.
  */
-export default function Logo({ light = false, className = '' }) {
-  const mark = light ? 'text-white' : 'text-green-deep'
-  const sub = light ? 'text-white/75' : 'text-muted'
+export default function Logo({ className = '' }) {
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <span
-        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-sm font-extrabold text-white ${
-          light ? 'bg-white/15' : 'bg-green'
-        }`}
-        aria-hidden="true"
-      >
-        Z
-      </span>
-      <span className="leading-tight">
-        <span className={`block text-[0.95rem] font-bold tracking-tight ${mark}`}>Zanokuhle</span>
-        <span className={`block text-[0.6rem] font-semibold uppercase tracking-[0.14em] ${sub}`}>
-          Intellectuals Academy
-        </span>
-      </span>
-    </span>
+    <picture className={`inline-flex items-center ${className}`}>
+      <source srcSet="/images/zanokuhle-logo.webp" type="image/webp" />
+      <img
+        src="/images/zanokuhle-logo.png"
+        alt="Zanokuhle Intellectuals Academy"
+        className="h-11 w-auto sm:h-12"
+      />
+    </picture>
   )
 }
