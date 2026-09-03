@@ -2,8 +2,10 @@
  * Build a single self-contained HTML file of the whole site, for sharing a
  * preview that needs no server. JS and CSS are inlined; there are no local
  * image assets to worry about (every image slot is an inline SVG
- * PhotoPlaceholder, and Poppins loads from Google Fonts). Routing is
- * HashRouter already (see src/main.jsx), so this works as a plain file.
+ * PhotoPlaceholder, and Poppins loads from Google Fonts). VITE_HASH_ROUTER
+ * switches routing to hashes and collapses code-splitting into one bundle
+ * (see src/main.jsx and vite.config.js) — deployed builds keep clean paths
+ * and per-route chunks.
  *
  *   npm run build:preview   ->  preview/zanokuhle-preview.html
  */
@@ -16,8 +18,8 @@ const dist = path.join(root, 'dist')
 const outDir = path.join(root, 'preview')
 const outFile = path.join(outDir, 'zanokuhle-preview.html')
 
-console.log('Building…')
-execSync('vite build', { stdio: 'inherit', env: { ...process.env, VITE_SINGLE_FILE: '1' } })
+console.log('Building with hash routing…')
+execSync('vite build', { stdio: 'inherit', env: { ...process.env, VITE_HASH_ROUTER: '1' } })
 
 let html = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
 
