@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 import PageHeader from '../components/PageHeader.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
@@ -56,6 +56,13 @@ export default function Contact() {
               </span>
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Office</p>
               <p className="mt-1 font-bold text-ink">{CONTACT.addressLines.join(', ')}</p>
+            </div>
+            <div className="card-hover">
+              <span className="icon-badge bg-orange-pale text-orange-deep">
+                <Clock size={18} strokeWidth={1.8} aria-hidden="true" />
+              </span>
+              <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Office hours</p>
+              <p className="mt-1 font-bold text-ink">{CONTACT.hours}</p>
             </div>
             <p className="text-xs leading-relaxed text-muted">
               The email address above is a placeholder pending confirmation and should be updated with

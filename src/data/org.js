@@ -15,6 +15,7 @@ export const CONTACT = {
   email: 'info@zanokuhleacademy.org.za', // PLACEHOLDER — confirm before launch.
   phone: '010 065 0822',
   addressLines: ['64 Hill St, Ferndale', 'Randburg, 2194'],
+  hours: 'Monday – Friday, 8am – 4pm',
 }
 
 export const SOCIALS = {
