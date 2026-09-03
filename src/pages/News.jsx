@@ -33,7 +33,7 @@ export default function News() {
                 )}
                 <div className="p-6">
                   <span className="text-[0.7rem] font-semibold uppercase tracking-wide text-blue">{item.category}</span>
-                  <h3 className="mt-2 font-bold text-ink">{item.title}</h3>
+                  <h3 className="mt-2 font-bold text-turquoise-deep">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-body">{item.excerpt}</p>
                 </div>
               </article>
@@ -49,7 +49,7 @@ export default function News() {
             {publications.map((p) => (
               <div key={p.name} className="flex items-center justify-between rounded-2xl border border-line bg-surface-50 p-6">
                 <div>
-                  <h3 className="font-bold text-ink">{p.name}</h3>
+                  <h3 className="font-bold text-turquoise-deep">{p.name}</h3>
                   <p className="mt-1 text-sm text-body">{p.text}</p>
                 </div>
                 <span className="shrink-0 rounded-full bg-pink-pale px-3 py-1 text-xs font-semibold text-pink-deep">

@@ -20,7 +20,7 @@ export default function GetInvolved() {
             {involvementPathways.map((p) => (
               <div key={p.id} id={p.id} className="scroll-mt-28 rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
                 <span className="text-[0.7rem] font-semibold uppercase tracking-wide text-blue">{p.audience}</span>
-                <h3 className="mt-2 font-bold text-ink">{p.title}</h3>
+                <h3 className="mt-2 font-bold text-turquoise-deep">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{p.text}</p>
               </div>
             ))}

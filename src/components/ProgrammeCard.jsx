@@ -16,7 +16,7 @@ export default function ProgrammeCard({ programme }) {
         <span className="text-[0.7rem] font-semibold uppercase tracking-wide text-blue">{categoryLabel}</span>
       </div>
 
-      <h3 className="mt-3 text-lg font-bold text-ink">{programme.name}</h3>
+      <h3 className="mt-3 text-lg font-bold text-turquoise-deep">{programme.name}</h3>
 
       <p className="mt-2 flex items-start gap-2 text-sm text-muted">
         <Users size={15} strokeWidth={2} className="mt-0.5 shrink-0" aria-hidden="true" />

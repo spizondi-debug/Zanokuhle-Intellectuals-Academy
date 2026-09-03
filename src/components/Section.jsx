@@ -15,8 +15,8 @@ export function Eyebrow({ children, light = false }) {
   return <p className={`eyebrow ${light ? 'text-yellow-light' : ''}`}>{children}</p>
 }
 
-export function SectionHeading({ eyebrow, title, lead, light = false, center = false, tone = 'ink' }) {
-  const colour = light ? 'text-white' : tone === 'turquoise' ? 'text-turquoise-deep' : 'text-ink'
+export function SectionHeading({ eyebrow, title, lead, light = false, center = false }) {
+  const colour = light ? 'text-white' : 'text-blue-deep'
   return (
     <div className={`max-w-2xl ${center ? 'mx-auto text-center' : ''}`}>
       {/* A small turquoise accent bar marks the start of every section

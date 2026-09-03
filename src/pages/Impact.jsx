@@ -35,7 +35,7 @@ export default function Impact() {
                   <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${impactAccents[i % 3].bg} ${impactAccents[i % 3].text}`}>
                     <TrendingUp size={16} strokeWidth={1.8} aria-hidden="true" />
                   </span>
-                  <h3 className="mt-3 font-bold text-ink">{a.name}</h3>
+                  <h3 className="mt-3 font-bold text-turquoise-deep">{a.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
                   <p className="mt-4 rounded-lg bg-surface-100 px-3 py-2 text-xs font-semibold text-muted">
                     Figures to be added once confirmed
@@ -53,7 +53,7 @@ export default function Impact() {
           <div className="mt-8 grid gap-5 sm:grid-cols-3">
             {accountabilityPractices.map((a) => (
               <div key={a.name} className="rounded-2xl border border-line bg-green-pale/40 p-6">
-                <h3 className="font-bold text-ink">{a.name}</h3>
+                <h3 className="font-bold text-turquoise-deep">{a.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
               </div>
             ))}

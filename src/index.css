@@ -87,8 +87,11 @@
   body {
     @apply bg-white font-sans text-body antialiased;
   }
-  h1, h2, h3, h4 {
-    @apply text-ink;
+  h1, h2 {
+    @apply text-blue-deep;
+  }
+  h3, h4 {
+    @apply text-turquoise-deep;
   }
   a {
     @apply text-blue;

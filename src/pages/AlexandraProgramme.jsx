@@ -55,7 +55,7 @@ export default function AlexandraProgramme() {
                   {i + 1}
                 </span>
                 <p className="mt-4 text-xs font-bold uppercase tracking-wide text-blue">{j.stage}</p>
-                <h3 className="mt-1 font-bold text-ink">{j.title}</h3>
+                <h3 className="mt-1 font-bold text-turquoise-deep">{j.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{j.text}</p>
               </div>
             ))}

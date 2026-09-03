@@ -65,7 +65,7 @@ export default function About() {
             {values.map((v, i) => (
               <div key={v.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
                 <span className="text-xs font-bold text-blue">{String(i + 1).padStart(2, '0')}</span>
-                <h3 className="mt-2 font-bold text-ink">{v.name}</h3>
+                <h3 className="mt-2 font-bold text-turquoise-deep">{v.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{v.text}</p>
               </div>
             ))}
@@ -80,7 +80,7 @@ export default function About() {
             <SectionHeading eyebrow="Governance" title="Responsible stewardship." />
             <p className="mt-5 leading-relaxed text-body">{governanceNote}</p>
 
-            <h3 className="mt-8 font-bold text-ink">A community-led approach</h3>
+            <h3 className="mt-8 font-bold text-turquoise-deep">A community-led approach</h3>
             <p className="mt-3 leading-relaxed text-body">{communityLedApproach}</p>
           </div>
 

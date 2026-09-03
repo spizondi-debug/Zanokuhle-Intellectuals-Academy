@@ -92,7 +92,7 @@ export default function Home() {
                   <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${focusAccents[i].bg} ${focusAccents[i].text}`}>
                     <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
                   </span>
-                  <h3 className="mt-4 font-bold text-ink">{a.name}</h3>
+                  <h3 className="mt-4 font-bold text-turquoise-deep">{a.name}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-body">{a.text}</p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-deep">
                     Learn more
@@ -113,7 +113,7 @@ export default function Home() {
             {howWeCreateChange.map((s) => (
               <div key={s.step} className="border-t-2 border-turquoise pt-5">
                 <span className="text-sm font-bold text-blue">{s.step}</span>
-                <h3 className="mt-2 font-bold text-ink">{s.title}</h3>
+                <h3 className="mt-2 font-bold text-turquoise-deep">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{s.text}</p>
               </div>
             ))}
@@ -131,7 +131,7 @@ export default function Home() {
           />
           <div>
             <p className="eyebrow">Featured programme</p>
-            <h2 className="mt-4 text-section font-bold text-ink">{alexandra.name}</h2>
+            <h2 className="mt-4 text-section font-bold text-blue-deep">{alexandra.name}</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">{alexandra.summary}</p>
             <ul className="mt-5 space-y-2">
               {alexandra.outcomes.map((o) => (
@@ -162,7 +162,7 @@ export default function Home() {
                 <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${impactAccents[i].bg} ${impactAccents[i].text}`}>
                   <TrendingUp size={16} strokeWidth={1.8} aria-hidden="true" />
                 </span>
-                <h3 className="mt-3 font-bold text-ink">{a.name}</h3>
+                <h3 className="mt-3 font-bold text-turquoise-deep">{a.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
               </div>
             ))}
@@ -181,7 +181,7 @@ export default function Home() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {partnerAudiences.map((p) => (
               <div key={p.name} className="rounded-2xl border border-line bg-surface-50 p-6">
-                <h3 className="font-bold text-ink">{p.name}</h3>
+                <h3 className="font-bold text-turquoise-deep">{p.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{p.text}</p>
               </div>
             ))}

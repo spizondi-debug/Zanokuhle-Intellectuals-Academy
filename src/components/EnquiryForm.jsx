@@ -26,7 +26,7 @@ export default function EnquiryForm({ enquiryTypes, defaultType, submitLabel = '
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-green-pale text-green-deep">
           <CheckCircle2 size={22} strokeWidth={2} aria-hidden="true" />
         </span>
-        <h3 className="text-lg font-bold text-ink">Thank you — your enquiry has been noted.</h3>
+        <h3 className="text-lg font-bold text-turquoise-deep">Thank you — your enquiry has been noted.</h3>
         <p className="max-w-sm text-sm leading-relaxed text-body">
           This is a demonstration form and has not been sent anywhere yet. Once connected to a live inbox, a
           member of the Zanokuhle team will follow up as soon as possible.
