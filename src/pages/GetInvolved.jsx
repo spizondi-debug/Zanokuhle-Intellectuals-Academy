@@ -2,6 +2,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 import Notice from '../components/Notice.jsx'
+import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
 import { involvementPathways, enquiryTypes, donationNote } from '../data/getInvolved.js'
 
 export default function GetInvolved() {
@@ -28,7 +29,17 @@ export default function GetInvolved() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-white section-pad">
+      <section className="border-y border-line bg-white section-pad">
+        <div className="container-px">
+          <PhotoPlaceholder
+            label="Photography placeholder"
+            tone="blue"
+            className="min-h-[16rem] rounded-3xl lg:min-h-[20rem]"
+          />
+        </div>
+      </section>
+
+      <section className="section-pad">
         <div className="container-px grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
             <SectionHeading eyebrow="Tell us how you'd like to help" title="Start the conversation." />

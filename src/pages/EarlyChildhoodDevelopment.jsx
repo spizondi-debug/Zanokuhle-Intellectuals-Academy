@@ -2,6 +2,7 @@ import { Sprout, BookOpenText, Calculator, HeartHandshake, Users, House, ShieldC
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import ProgrammeCard from '../components/ProgrammeCard.jsx'
+import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
 import Notice from '../components/Notice.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
@@ -28,19 +29,26 @@ export default function EarlyChildhoodDevelopment() {
       />
 
       <section className="section-pad">
-        <div className="container-px">
-          <SectionHeading eyebrow="Our focus" title="Building foundations before formal school." />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {pillars.map((p) => (
-              <div key={p.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-turquoise-pale text-turquoise-deep">
-                  <p.icon size={18} strokeWidth={1.8} aria-hidden="true" />
-                </span>
-                <h3 className="mt-3 font-bold text-turquoise-deep">{p.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-body">{p.text}</p>
-              </div>
-            ))}
+        <div className="container-px grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <SectionHeading eyebrow="Our focus" title="Building foundations before formal school." />
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              {pillars.map((p) => (
+                <div key={p.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-turquoise-pale text-turquoise-deep">
+                    <p.icon size={18} strokeWidth={1.8} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-3 font-bold text-turquoise-deep">{p.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-body">{p.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
+          <PhotoPlaceholder
+            label="Photography placeholder"
+            tone="turquoise"
+            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+          />
         </div>
       </section>
 

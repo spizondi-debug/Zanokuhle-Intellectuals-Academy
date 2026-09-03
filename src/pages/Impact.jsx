@@ -2,6 +2,7 @@ import { TrendingUp } from 'lucide-react'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import Notice from '../components/Notice.jsx'
+import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { impactAreas, accountabilityPractices, impactStatement } from '../data/impact.js'
 
@@ -48,16 +49,23 @@ export default function Impact() {
       </section>
 
       <section className="border-y border-line bg-white section-pad">
-        <div className="container-px">
-          <SectionHeading eyebrow="How we stay accountable" title="Governance behind the numbers." />
-          <div className="mt-8 grid gap-5 sm:grid-cols-3">
-            {accountabilityPractices.map((a) => (
-              <div key={a.name} className="rounded-2xl border border-line bg-green-pale/40 p-6">
-                <h3 className="font-bold text-turquoise-deep">{a.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
-              </div>
-            ))}
+        <div className="container-px grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <SectionHeading eyebrow="How we stay accountable" title="Governance behind the numbers." />
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              {accountabilityPractices.map((a) => (
+                <div key={a.name} className="rounded-2xl border border-line bg-green-pale/40 p-6">
+                  <h3 className="font-bold text-turquoise-deep">{a.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
+          <PhotoPlaceholder
+            label="Photography placeholder"
+            tone="turquoise"
+            className="min-h-[16rem] rounded-3xl lg:min-h-full"
+          />
         </div>
       </section>
 

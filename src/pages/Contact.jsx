@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin } from 'lucide-react'
 import PageHeader from '../components/PageHeader.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
+import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
 import { CONTACT } from '../data/org.js'
 
 const generalEnquiryTypes = [
@@ -25,6 +26,11 @@ export default function Contact() {
       <section className="section-pad">
         <div className="container-px grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div className="space-y-6">
+            <PhotoPlaceholder
+              label="Photography placeholder"
+              tone="blue"
+              className="h-40 rounded-2xl"
+            />
             <div className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
               <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-turquoise-pale text-turquoise-deep">
                 <Mail size={18} strokeWidth={1.8} aria-hidden="true" />
