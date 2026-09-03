@@ -26,11 +26,11 @@ export default function Contact() {
         <div className="container-px grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div className="space-y-6">
             <div className="rounded-2xl border border-line bg-white p-6">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-pale text-green-deep">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-turquoise-pale text-turquoise-deep">
                 <Mail size={18} strokeWidth={1.8} aria-hidden="true" />
               </span>
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Email</p>
-              <a href={`mailto:${CONTACT.email}`} className="mt-1 block font-bold text-ink hover:text-green-deep">
+              <a href={`mailto:${CONTACT.email}`} className="mt-1 block font-bold text-ink hover:text-turquoise-deep">
                 {CONTACT.email}
               </a>
             </div>
@@ -44,7 +44,7 @@ export default function Contact() {
               </a>
             </div>
             <div className="rounded-2xl border border-line bg-white p-6">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold-pale text-gold-deep">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-yellow-pale text-yellow-deep">
                 <MapPin size={18} strokeWidth={1.8} aria-hidden="true" />
               </span>
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Office</p>

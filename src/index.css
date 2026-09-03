@@ -2,12 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+ * Brand colour variables — sampled from the real Zanokuhle logo
+ * (public/images/zanokuhle-logo.png) and centrally managed here so every
+ * Tailwind colour utility (tailwind.config.js) and any future custom CSS
+ * reads from one source. Stored as space-separated RGB triplets (not hex)
+ * so Tailwind's `rgb(var(--x) / <alpha-value>)` pattern keeps opacity
+ * modifiers like `bg-turquoise-pale/50` working.
+ *
+ * Roles (see tailwind.config.js for the full contrast-audit notes):
+ *  - turquoise + blue: primary actions — buttons, links, nav highlights.
+ *  - green: success states, positive/selected highlights only.
+ *  - yellow / orange / pink / purple: sparing accents — a single small
+ *    badge, icon or eyebrow at a time, never a large fill.
+ *  - ink / body / muted: deep navy-charcoal text, not the old warm greys.
+ */
+:root {
+  --color-white: 255 255 255;
+  --color-ink: 17 22 34;
+  --color-body: 60 70 93;
+  --color-muted: 92 102 122;
+  --color-line: 222 226 232;
+  --color-surface-50: 247 248 250;
+  --color-surface-100: 240 242 245;
+  --color-surface-200: 227 231 237;
+  --color-surface-300: 203 210 220;
+
+  --color-turquoise: 31 111 98;
+  --color-turquoise-deep: 22 80 70;
+  --color-turquoise-light: 64 156 140;
+  --color-turquoise-pale: 237 248 246;
+
+  --color-blue: 29 78 140;
+  --color-blue-deep: 21 59 107;
+  --color-blue-light: 62 118 196;
+  --color-blue-pale: 234 241 251;
+
+  --color-green: 31 122 43;
+  --color-green-deep: 19 83 28;
+  --color-green-light: 77 203 94;
+  --color-green-pale: 237 248 238;
+
+  --color-yellow: 249 224 6;
+  --color-yellow-deep: 123 100 10;
+  --color-yellow-light: 240 215 117;
+  --color-yellow-pale: 251 248 233;
+
+  --color-orange: 230 112 15;
+  --color-orange-deep: 174 84 9;
+  --color-orange-light: 222 169 124;
+  --color-orange-pale: 251 241 234;
+
+  --color-pink: 216 49 105;
+  --color-pink-deep: 168 36 80;
+  --color-pink-light: 222 124 157;
+  --color-pink-pale: 249 235 240;
+
+  --color-purple: 173 65 200;
+  --color-purple-deep: 149 50 174;
+  --color-purple-light: 203 124 222;
+  --color-purple-pale: 246 237 248;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-sand-50 font-sans text-body antialiased;
+    @apply bg-white font-sans text-body antialiased;
   }
   h1, h2, h3, h4 {
     @apply text-ink;
@@ -32,13 +94,13 @@
            focus-visible:outline-offset-2 focus-visible:outline-blue-deep;
   }
   .btn-primary {
-    @apply bg-green text-white shadow-soft hover:bg-green-deep;
+    @apply bg-turquoise text-white shadow-soft hover:bg-turquoise-deep;
   }
   .btn-secondary {
     @apply bg-blue text-white shadow-soft hover:bg-blue-deep;
   }
   .btn-outline {
-    @apply border border-line bg-white text-ink hover:border-green hover:text-green-deep;
+    @apply border border-line bg-white text-ink hover:border-turquoise hover:text-turquoise-deep;
   }
   .btn-outline-light {
     @apply border border-white/50 bg-transparent text-white hover:border-white hover:bg-white/10;

@@ -29,7 +29,7 @@ export default function News() {
                 {item.image ? (
                   <StockPhoto src={item.image.src} alt={item.image.alt} className="h-40 w-full" />
                 ) : (
-                  <PhotoPlaceholder label="Photography placeholder" tone="green" className="h-40 w-full" />
+                  <PhotoPlaceholder label="Photography placeholder" tone="turquoise" className="h-40 w-full" />
                 )}
                 <div className="p-6">
                   <span className="text-[0.7rem] font-semibold uppercase tracking-wide text-blue">{item.category}</span>
@@ -47,12 +47,12 @@ export default function News() {
           <SectionHeading eyebrow="Reports & publications" title="Where we'll publish our reporting." />
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {publications.map((p) => (
-              <div key={p.name} className="flex items-center justify-between rounded-2xl border border-line bg-sand-50 p-6">
+              <div key={p.name} className="flex items-center justify-between rounded-2xl border border-line bg-surface-50 p-6">
                 <div>
                   <h3 className="font-bold text-ink">{p.name}</h3>
                   <p className="mt-1 text-sm text-body">{p.text}</p>
                 </div>
-                <span className="shrink-0 rounded-full bg-gold-pale px-3 py-1 text-xs font-semibold text-gold-deep">
+                <span className="shrink-0 rounded-full bg-pink-pale px-3 py-1 text-xs font-semibold text-pink-deep">
                   {p.status}
                 </span>
               </div>

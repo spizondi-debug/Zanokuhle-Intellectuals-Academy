@@ -12,11 +12,11 @@
  * and delete the placeholder once photography with proper consent
  * (see SAFEGUARDING_NOTE in data/org.js) is available.
  */
-export default function PhotoPlaceholder({ label, tone = 'green', className = '' }) {
+export default function PhotoPlaceholder({ label, tone = 'turquoise', className = '' }) {
   const tones = {
-    green: 'from-green-pale via-sand-100 to-blue-pale',
-    blue: 'from-blue-pale via-sand-100 to-green-pale',
-    gold: 'from-gold-pale via-sand-100 to-green-pale',
+    turquoise: 'from-turquoise-pale via-surface-100 to-blue-pale',
+    blue: 'from-blue-pale via-surface-100 to-turquoise-pale',
+    yellow: 'from-yellow-pale via-surface-100 to-turquoise-pale',
   }
   return (
     <div
@@ -24,12 +24,12 @@ export default function PhotoPlaceholder({ label, tone = 'green', className = ''
     >
       <svg className="absolute inset-0 h-full w-full opacity-[0.35]" aria-hidden="true">
         <pattern id={`grid-${tone}`} width="28" height="28" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="1.4" fill="currentColor" className="text-green" />
+          <circle cx="2" cy="2" r="1.4" fill="currentColor" className="text-turquoise" />
         </pattern>
         <rect width="100%" height="100%" fill={`url(#grid-${tone})`} />
       </svg>
       {label && (
-        <span className="relative rounded-full border border-white/70 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-green-deep backdrop-blur-sm">
+        <span className="relative rounded-full border border-white/70 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-turquoise-deep backdrop-blur-sm">
           {label}
         </span>
       )}

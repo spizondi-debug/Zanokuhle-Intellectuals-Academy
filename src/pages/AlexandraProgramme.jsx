@@ -51,7 +51,7 @@ export default function AlexandraProgramme() {
             <div className="absolute left-0 right-0 top-6 hidden h-px bg-line lg:block" aria-hidden="true" />
             {alexandraJourney.map((j, i) => (
               <div key={j.stage} className="relative">
-                <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-green-deep text-sm font-bold text-white">
+                <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-turquoise-deep text-sm font-bold text-white">
                   {i + 1}
                 </span>
                 <p className="mt-4 text-xs font-bold uppercase tracking-wide text-blue">{j.stage}</p>

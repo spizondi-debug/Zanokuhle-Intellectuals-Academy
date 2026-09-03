@@ -9,6 +9,16 @@ import { programmes } from '../data/programmes.js'
 import { impactAreas } from '../data/impact.js'
 
 const focusIcons = [GraduationCap, BookOpen, Laptop2, Users2]
+// One signature accent per focus area, matching each area's own
+// programme page (see EarlyChildhoodDevelopment/EducationAfterSchool/
+// SkillsAndYouthDevelopment/SocialAndCommunityDevelopment) — kept as
+// complete literal class names so Tailwind's content scanner finds them.
+const focusAccents = [
+  { bg: 'bg-turquoise-pale', text: 'text-turquoise-deep' },
+  { bg: 'bg-blue-pale', text: 'text-blue-deep' },
+  { bg: 'bg-orange-pale', text: 'text-orange-deep' },
+  { bg: 'bg-pink-pale', text: 'text-pink-deep' },
+]
 
 const alexandra = programmes.find((p) => p.slug === 'alexandra-learner-advancement')
 
@@ -23,10 +33,10 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-green-deep">
+      <section className="relative overflow-hidden bg-turquoise-deep">
         <div className="container-px relative grid gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-24">
           <div className="flex flex-col justify-center">
-            <p className="eyebrow text-gold-light">Zanokuhle Intellectuals Academy</p>
+            <p className="eyebrow text-yellow-light">Zanokuhle Intellectuals Academy</p>
             <h1 className="mt-4 text-display font-bold text-white">
               Building brighter futures through <Accent light>learning, opportunity and community</Accent>.
             </h1>
@@ -35,7 +45,7 @@ export default function Home() {
               underserved communities to learn, grow and participate in a stronger future.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to="/get-involved" className="btn bg-gold text-ink shadow-soft hover:bg-gold-deep hover:text-white">
+              <Link to="/get-involved" className="btn bg-white text-turquoise-deep shadow-soft hover:bg-surface-100">
                 Support Our Work
               </Link>
               <Link to="/programmes" className="btn btn-outline-light">
@@ -71,12 +81,12 @@ export default function Home() {
               const Icon = focusIcons[i]
               return (
                 <Link key={a.name} to={a.href} className="card group flex h-full flex-col p-6 transition-shadow hover:shadow-lift">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-pale text-green-deep">
+                  <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${focusAccents[i].bg} ${focusAccents[i].text}`}>
                     <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
                   </span>
                   <h3 className="mt-4 font-bold text-ink">{a.name}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-body">{a.text}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep">
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-turquoise-deep">
                     Learn more
                     <ArrowRight size={14} strokeWidth={2.2} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </span>
@@ -93,7 +103,7 @@ export default function Home() {
           <SectionHeading eyebrow="Our approach" title="How we create change." />
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {howWeCreateChange.map((s) => (
-              <div key={s.step} className="border-t-2 border-green pt-5">
+              <div key={s.step} className="border-t-2 border-turquoise pt-5">
                 <span className="text-sm font-bold text-blue">{s.step}</span>
                 <h3 className="mt-2 font-bold text-ink">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{s.text}</p>
@@ -146,7 +156,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <Link to="/impact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep hover:text-green">
+          <Link to="/impact" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-turquoise-deep hover:text-turquoise">
             See our full approach to impact and accountability
             <ArrowRight size={15} strokeWidth={2.2} aria-hidden="true" />
           </Link>
@@ -159,7 +169,7 @@ export default function Home() {
           <SectionHeading eyebrow="Partner with us" title="Built to work alongside funders, schools and volunteers." />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {partnerAudiences.map((p) => (
-              <div key={p.name} className="rounded-2xl border border-line bg-sand-50 p-6">
+              <div key={p.name} className="rounded-2xl border border-line bg-surface-50 p-6">
                 <h3 className="font-bold text-ink">{p.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-body">{p.text}</p>
               </div>

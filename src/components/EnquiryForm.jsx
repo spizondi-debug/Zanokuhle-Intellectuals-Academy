@@ -40,19 +40,19 @@ export default function EnquiryForm({ enquiryTypes, defaultType, submitLabel = '
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-semibold text-ink">
           Full name
-          <input required type="text" name="name" className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-green focus:outline-none" />
+          <input required type="text" name="name" className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-turquoise focus:outline-none" />
         </label>
         <label className="block text-sm font-semibold text-ink">
           Email address
-          <input required type="email" name="email" className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-green focus:outline-none" />
+          <input required type="email" name="email" className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-turquoise focus:outline-none" />
         </label>
         <label className="block text-sm font-semibold text-ink">
           Phone number
-          <input type="tel" name="phone" className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-green focus:outline-none" />
+          <input type="tel" name="phone" className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-turquoise focus:outline-none" />
         </label>
         <label className="block text-sm font-semibold text-ink">
           Organisation (if applicable)
-          <input type="text" name="organisation" className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-green focus:outline-none" />
+          <input type="text" name="organisation" className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-turquoise focus:outline-none" />
         </label>
       </div>
 
@@ -62,7 +62,7 @@ export default function EnquiryForm({ enquiryTypes, defaultType, submitLabel = '
           <select
             name="enquiryType"
             defaultValue={defaultType || enquiryTypes[0]}
-            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink focus:border-green focus:outline-none"
+            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm text-ink focus:border-turquoise focus:outline-none"
           >
             {enquiryTypes.map((t) => (
               <option key={t}>{t}</option>
@@ -77,7 +77,7 @@ export default function EnquiryForm({ enquiryTypes, defaultType, submitLabel = '
           required
           name="message"
           rows={4}
-          className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-green focus:outline-none"
+          className="mt-1.5 w-full rounded-xl border border-line px-4 py-2.5 text-sm text-ink focus:border-turquoise focus:outline-none"
         />
       </label>
 
@@ -87,7 +87,7 @@ export default function EnquiryForm({ enquiryTypes, defaultType, submitLabel = '
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1 h-4 w-4 shrink-0 rounded border-line text-green focus:ring-green"
+          className="mt-1 h-4 w-4 shrink-0 rounded border-line text-turquoise focus:ring-turquoise"
         />
         <span>
           I consent to Zanokuhle Intellectuals Academy storing and using the information above to respond to my

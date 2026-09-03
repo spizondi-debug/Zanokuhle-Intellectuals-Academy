@@ -24,7 +24,7 @@ export default function Impact() {
                 <div key={a.name} className="rounded-2xl border border-line bg-white p-6">
                   <h3 className="font-bold text-ink">{a.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-body">{a.text}</p>
-                  <p className="mt-4 rounded-lg bg-sand-100 px-3 py-2 text-xs font-semibold text-muted">
+                  <p className="mt-4 rounded-lg bg-surface-100 px-3 py-2 text-xs font-semibold text-muted">
                     Figures to be added once confirmed
                   </p>
                 </div>

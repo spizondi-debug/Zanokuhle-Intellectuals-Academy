@@ -10,7 +10,7 @@ function DesktopItem({ item }) {
       <NavLink
         to={item.to}
         className={({ isActive }) =>
-          `text-sm font-semibold transition-colors hover:text-green-deep ${isActive ? 'text-green-deep' : 'text-ink'}`
+          `text-sm font-semibold transition-colors hover:text-turquoise-deep ${isActive ? 'text-turquoise-deep' : 'text-ink'}`
         }
       >
         {item.label}
@@ -19,7 +19,7 @@ function DesktopItem({ item }) {
   }
   return (
     <div className="group relative">
-      <button type="button" className="flex items-center gap-1 text-sm font-semibold text-ink hover:text-green-deep">
+      <button type="button" className="flex items-center gap-1 text-sm font-semibold text-ink hover:text-turquoise-deep">
         {item.label}
         <ChevronDown size={14} strokeWidth={2.2} aria-hidden="true" />
       </button>
@@ -29,7 +29,7 @@ function DesktopItem({ item }) {
             <Link
               key={c.to}
               to={c.to}
-              className="block border-b border-line px-5 py-3 text-sm font-medium text-body last:border-b-0 hover:bg-sand-50 hover:text-green-deep"
+              className="block border-b border-line px-5 py-3 text-sm font-medium text-body last:border-b-0 hover:bg-surface-50 hover:text-turquoise-deep"
             >
               {c.label}
             </Link>
@@ -81,7 +81,7 @@ export default function Header() {
                 <Link
                   to={item.to}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-sm font-semibold text-ink hover:bg-sand-50"
+                  className="block rounded-lg px-3 py-3 text-sm font-semibold text-ink hover:bg-surface-50"
                 >
                   {item.label}
                 </Link>
@@ -92,7 +92,7 @@ export default function Header() {
                         key={c.to}
                         to={c.to}
                         onClick={() => setOpen(false)}
-                        className="rounded-lg px-3 py-2 text-sm text-body hover:bg-sand-50 hover:text-green-deep"
+                        className="rounded-lg px-3 py-2 text-sm text-body hover:bg-surface-50 hover:text-turquoise-deep"
                       >
                         {c.label}
                       </Link>

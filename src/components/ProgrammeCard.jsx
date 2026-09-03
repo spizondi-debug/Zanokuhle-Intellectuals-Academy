@@ -9,7 +9,7 @@ export default function ProgrammeCard({ programme }) {
     <div className="card flex h-full flex-col p-6">
       <div className="flex items-center gap-2">
         {programme.flagship && (
-          <span className="rounded-full bg-gold-pale px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-gold-deep">
+          <span className="rounded-full bg-purple-pale px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-purple-deep">
             Flagship
           </span>
         )}
@@ -41,7 +41,7 @@ export default function ProgrammeCard({ programme }) {
       <div className="mt-5 border-t border-line pt-4">
         <Link
           to={programme.href}
-          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-green-deep hover:text-green"
+          className="group inline-flex items-center gap-1.5 text-sm font-semibold text-turquoise-deep hover:text-turquoise"
         >
           {programme.ctaLabel || 'Learn More'}
           <ArrowRight size={15} strokeWidth={2.2} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
