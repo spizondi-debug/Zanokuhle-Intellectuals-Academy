@@ -33,7 +33,7 @@ export default function Impact() {
             <SectionHeading eyebrow="What we track" title="The categories behind every programme report." />
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {impactAreas.map((a, i) => (
-                <div key={a.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
+                <div key={a.name} className="card-hover">
                   <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${impactAccents[i % 3].bg} ${impactAccents[i % 3].text}`}>
                     <TrendingUp size={16} strokeWidth={1.8} aria-hidden="true" />
                   </span>

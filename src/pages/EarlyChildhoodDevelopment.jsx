@@ -35,8 +35,8 @@ export default function EarlyChildhoodDevelopment() {
             <SectionHeading eyebrow="Our focus" title="Building foundations before formal school." />
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
               {pillars.map((p) => (
-                <div key={p.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-turquoise-pale text-turquoise-deep">
+                <div key={p.name} className="card-hover">
+                  <span className="icon-badge bg-turquoise-pale text-turquoise-deep">
                     <p.icon size={18} strokeWidth={1.8} aria-hidden="true" />
                   </span>
                   <h3 className="mt-3 font-bold text-turquoise-deep">{p.name}</h3>
@@ -56,7 +56,7 @@ export default function EarlyChildhoodDevelopment() {
       <section className="border-y border-line bg-white section-pad">
         <div className="container-px grid gap-8 lg:grid-cols-2 lg:gap-16">
           <div>
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-pale text-blue-deep">
+            <span className="icon-badge bg-blue-pale text-blue-deep">
               <ShieldCheck size={18} strokeWidth={1.8} aria-hidden="true" />
             </span>
             <h3 className="mt-4 text-xl font-bold text-turquoise-deep">Safe, nurturing learning environments</h3>

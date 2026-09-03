@@ -36,7 +36,7 @@ export default function EducationAfterSchool() {
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {offerings.map((o) => (
                 <div key={o.name} className="flex items-start gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-pale text-blue-deep">
+                  <span className="icon-badge shrink-0 bg-blue-pale text-blue-deep">
                     <o.icon size={18} strokeWidth={1.8} aria-hidden="true" />
                   </span>
                   <div>

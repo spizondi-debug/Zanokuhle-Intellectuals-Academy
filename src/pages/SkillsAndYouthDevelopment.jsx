@@ -44,7 +44,7 @@ export default function SkillsAndYouthDevelopment() {
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {areas.map((a) => (
                 <div key={a.name} className="flex items-start gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-orange-pale text-orange-deep">
+                  <span className="icon-badge shrink-0 bg-orange-pale text-orange-deep">
                     <a.icon size={18} strokeWidth={1.8} aria-hidden="true" />
                   </span>
                   <div>

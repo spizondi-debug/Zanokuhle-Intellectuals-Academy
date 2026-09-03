@@ -163,7 +163,7 @@ export default function Home() {
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {impactAreas.slice(0, 3).map((a, i) => (
-              <div key={a.name} className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
+              <div key={a.name} className="card-hover">
                 <span className={`flex h-9 w-9 items-center justify-center rounded-lg ${impactAccents[i].bg} ${impactAccents[i].text}`}>
                   <TrendingUp size={16} strokeWidth={1.8} aria-hidden="true" />
                 </span>

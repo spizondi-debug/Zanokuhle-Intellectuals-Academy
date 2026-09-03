@@ -96,6 +96,26 @@
   a {
     @apply text-blue;
   }
+  /* Keyboard focus indicator — .btn defines its own (matched to this one),
+     this covers every other link/interactive element that previously fell
+     back to a browser-default outline, invisible on dark/photo sections. */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    @apply rounded-sm outline outline-2 outline-offset-2 outline-blue-deep;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer components {
@@ -127,6 +147,20 @@
 
   .card {
     @apply rounded-2xl border border-line bg-white shadow-card;
+  }
+
+  /* The site's most-repeated card pattern: a plain white tile that
+     highlights its border on hover. Used across pillar/value/tracking
+     grids on most interior pages — kept here once instead of as an
+     identical class string copy-pasted into every page file. */
+  .card-hover {
+    @apply rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise;
+  }
+
+  /* Standard icon tile: colour (bg-*-pale/text-*-deep) is set per usage
+     since it varies by section, this only fixes the shared layout. */
+  .icon-badge {
+    @apply flex h-10 w-10 items-center justify-center rounded-lg;
   }
 
   .section-pad {

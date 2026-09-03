@@ -32,8 +32,8 @@ export default function Contact() {
               alt="A child in a classroom setting with other children"
               className="h-40 rounded-2xl"
             />
-            <div className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-turquoise-pale text-turquoise-deep">
+            <div className="card-hover">
+              <span className="icon-badge bg-turquoise-pale text-turquoise-deep">
                 <Mail size={18} strokeWidth={1.8} aria-hidden="true" />
               </span>
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Email</p>
@@ -41,8 +41,8 @@ export default function Contact() {
                 {CONTACT.email}
               </a>
             </div>
-            <div className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-pale text-blue-deep">
+            <div className="card-hover">
+              <span className="icon-badge bg-blue-pale text-blue-deep">
                 <Phone size={18} strokeWidth={1.8} aria-hidden="true" />
               </span>
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Telephone</p>
@@ -50,8 +50,8 @@ export default function Contact() {
                 {CONTACT.phone}
               </a>
             </div>
-            <div className="rounded-2xl border border-line bg-white p-6 transition-colors hover:border-turquoise">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-yellow-pale text-yellow-deep">
+            <div className="card-hover">
+              <span className="icon-badge bg-yellow-pale text-yellow-deep">
                 <MapPin size={18} strokeWidth={1.8} aria-hidden="true" />
               </span>
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Office</p>
