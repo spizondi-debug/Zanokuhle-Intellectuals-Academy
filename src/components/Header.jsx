@@ -50,7 +50,9 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur">
       <div className="border-b border-line bg-surface-50">
         <div className="container-px flex justify-end py-1.5">
-          <span className="text-[0.7rem] font-medium text-muted">NPC {REGISTRATION.npc}</span>
+          <span className="text-[0.7rem] font-medium text-muted">
+            NPO {REGISTRATION.npo} · NPC {REGISTRATION.npc}
+          </span>
         </div>
       </div>
       <div className="container-px flex h-20 items-center justify-between">
