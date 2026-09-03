@@ -40,10 +40,20 @@ const partnerAudiences = [
 export default function Home() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero — the same hero photo, now used as a full-bleed background
+          behind a solid turquoise-deep/85 tint (not a gradient) so white
+          text stays reliably legible across the whole photo, not just
+          wherever it happens to be darkest. */}
       <section className="relative overflow-hidden bg-turquoise-deep">
-        <div className="container-px relative grid gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-24">
-          <div className="flex flex-col justify-center">
+        <img
+          src="/images/stock-hero-learners-smiling.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-turquoise-deep/85" aria-hidden="true" />
+        <div className="container-px relative py-16 lg:py-24">
+          <div className="max-w-2xl">
             <p className="eyebrow text-yellow-light">Zanokuhle Intellectuals Academy</p>
             <h1 className="mt-4 text-display font-bold text-white">
               Building brighter futures through <Accent light>learning, opportunity and community</Accent>.
@@ -61,11 +71,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <StockPhoto
-            src="/images/stock-hero-learners-smiling.jpg"
-            alt="Children smiling together outdoors"
-            className="min-h-[18rem] rounded-3xl lg:min-h-full"
-          />
         </div>
       </section>
 
