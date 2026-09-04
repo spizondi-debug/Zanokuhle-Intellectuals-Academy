@@ -4,7 +4,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
-import { CONTACT, REGISTRATION, mission, IS_EMAIL_UNCONFIRMED } from '../data/org.js'
+import { CONTACT, REGISTRATION, mission } from '../data/org.js'
 import { seoByPath } from '../data/seo.js'
 import { faqPageJsonLd } from '../lib/jsonld.js'
 import { trackEvent } from '../lib/analytics.js'
@@ -120,12 +120,6 @@ export default function Contact() {
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Office hours</p>
               <p className="mt-1 font-bold text-ink">{CONTACT.hours}</p>
             </div>
-            {IS_EMAIL_UNCONFIRMED && (
-              <p className="text-xs leading-relaxed text-muted">
-                The email address above is a placeholder pending confirmation and should be updated with
-                Zanokuhle's live inbox before this site goes public.
-              </p>
-            )}
           </div>
 
           <EnquiryForm enquiryTypes={generalEnquiryTypes} submitLabel="Send Message" formName="contact" />

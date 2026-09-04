@@ -11,13 +11,10 @@ export const REGISTRATION = {
   npc: '2022/619121/08',
 }
 
-// Configurable via VITE_CONTACT_EMAIL once Zanokuhle confirms their live
-// inbox. Falls back to a clearly-named placeholder otherwise —
-// IS_EMAIL_UNCONFIRMED lets any page show (or automatically stop showing,
-// once a real one is set) a "needs confirmation" note next to it.
-const PLACEHOLDER_EMAIL = 'info@zanokuhleacademy.org.za'
-const email = import.meta.env.VITE_CONTACT_EMAIL || PLACEHOLDER_EMAIL
-export const IS_EMAIL_UNCONFIRMED = email === PLACEHOLDER_EMAIL
+// Zanokuhle's confirmed live inbox, on the organisation's own domain.
+// VITE_CONTACT_EMAIL still overrides it (e.g. to route enquiries
+// elsewhere for a staging deploy) without needing a code change.
+const email = import.meta.env.VITE_CONTACT_EMAIL || 'info@zanokuhleintellectuals.co.za'
 
 export const CONTACT = {
   email,

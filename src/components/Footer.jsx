@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin } from 'lucide-react'
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from './SocialIcons.jsx'
 import Logo from './Logo.jsx'
 import { footerNav } from '../data/nav.js'
-import { CONTACT, REGISTRATION, SOCIALS, IS_EMAIL_UNCONFIRMED } from '../data/org.js'
+import { CONTACT, REGISTRATION, SOCIALS } from '../data/org.js'
 import { trackEvent } from '../lib/analytics.js'
 
 export default function Footer() {
@@ -85,7 +85,6 @@ export default function Footer() {
             >
               {CONTACT.email}
             </a>
-            {IS_EMAIL_UNCONFIRMED && <span className="text-[0.65rem] text-white/40"> (unconfirmed)</span>}
           </div>
           <div className="flex items-start gap-2.5">
             <Phone size={16} className="mt-0.5 shrink-0 text-yellow" aria-hidden="true" />
