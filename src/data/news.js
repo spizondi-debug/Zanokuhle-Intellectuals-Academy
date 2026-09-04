@@ -26,10 +26,19 @@ export const newsItems = [
     title: 'Learner story — content to be added',
     date: null,
     excerpt: 'A learner story may be featured here once written consent from a parent or guardian is on file. Replace this placeholder before publishing.',
-    // No image: a "Learner Story" card implies the photo is of the learner
-    // whose story it is. Pairing it with a stock photo of an unrelated
-    // child would misleadingly suggest an identity — leave as
-    // PhotoPlaceholder until a real, consented learner photo exists.
+    // A "Learner Story" card next to a photo could otherwise read as if the
+    // photo is of the learner whose story it is. Explicitly requested to
+    // use a stock photo anyway — `illustrative: true` makes News.jsx render
+    // a visible "Illustrative photo" label (not just alt text) so it can't
+    // be mistaken for the actual learner. Replace with a real, consented
+    // photo once a specific learner story is confirmed, and drop the flag.
+    image: {
+      src: '/images/stock-contact-classroom-portrait.jpg',
+      alt: 'Generic stock photo of a child in a classroom, used only to illustrate this story — not a photograph of the learner featured',
+      width: 1920,
+      height: 1280,
+      illustrative: true,
+    },
   },
   {
     slug: 'placeholder-community-activity',

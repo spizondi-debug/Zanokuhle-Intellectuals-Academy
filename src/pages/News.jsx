@@ -34,13 +34,20 @@ export default function News() {
             {newsItems.map((item) => (
               <article key={item.slug} className="card overflow-hidden">
                 {item.image ? (
-                  <StockPhoto
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    width={item.image.width}
-                    height={item.image.height}
-                    className="h-40 w-full"
-                  />
+                  <div className="relative">
+                    <StockPhoto
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      width={item.image.width}
+                      height={item.image.height}
+                      className="h-40 w-full"
+                    />
+                    {item.image.illustrative && (
+                      <span className="absolute bottom-2 right-2 rounded-full bg-ink/80 px-2.5 py-1 text-[0.65rem] font-semibold text-white">
+                        Illustrative photo
+                      </span>
+                    )}
+                  </div>
                 ) : (
                   <PhotoPlaceholder label="Photography placeholder" tone="turquoise" className="h-40 w-full" />
                 )}
