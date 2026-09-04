@@ -20,11 +20,10 @@ const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined
 // public/images/* are referenced as root-absolute strings ("/images/x.jpg")
 // throughout the app rather than as Vite-processed imports, deliberately —
 // scripts/build-preview.mjs finds and inlines every one of those exact
-// literal strings, which only works if they stay literal rather than
-// built from `${BASE_URL}images/x.jpg` template pieces. That means image
-// requests are NOT subpath-aware: this site is safe to deploy under a
-// subpath for routing, but only at domain root for images, unless that
-// script's approach changes too.
+// literal strings. src/lib/assetPath.js's imagePath() wraps every one of
+// them with the BASE_URL prefix used here, so image requests stay correct
+// under a subpath (e.g. a GitHub Pages project site) without breaking that
+// literal-string search — see the comment in assetPath.js for why.
 document.querySelector('meta[name="description"]')?.remove()
 
 createRoot(document.getElementById('root')).render(

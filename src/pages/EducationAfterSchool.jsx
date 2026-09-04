@@ -7,6 +7,7 @@ import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
 import { seoByPath } from '../data/seo.js'
+import { imagePath } from '../lib/assetPath.js'
 
 const offerings = [
   { icon: BookOpen, name: 'Tutoring', text: 'Regular, subject-focused tutoring aligned to the school curriculum.' },
@@ -30,9 +31,9 @@ export default function EducationAfterSchool() {
         eyebrow="Programme area"
         title="Education & After-School Programmes."
         lead="Consistent academic support that keeps learners progressing — tutoring, homework support, mentorship and the resources behind them."
-        image="/images/stock-education-classroom-desks.jpg"
-        imageWebp="/images/stock-education-classroom-desks.webp"
-        imageWebp800w="/images/stock-education-classroom-desks-800w.webp"
+        image={imagePath('/images/stock-education-classroom-desks.jpg')}
+        imageWebp={imagePath('/images/stock-education-classroom-desks.webp')}
+        imageWebp800w={imagePath('/images/stock-education-classroom-desks-800w.webp')}
         imageWidth={1920}
         imageHeight={1080}
       />
@@ -56,8 +57,8 @@ export default function EducationAfterSchool() {
             </div>
           </div>
           <StockPhoto
-            src="/images/stock-education-classroom-desks.jpg"
-            webpSrc="/images/stock-education-classroom-desks.webp"
+            src={imagePath('/images/stock-education-classroom-desks.jpg')}
+            webpSrc={imagePath('/images/stock-education-classroom-desks.webp')}
             alt="Learners at desks in a classroom, engaged in a lesson"
             className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}

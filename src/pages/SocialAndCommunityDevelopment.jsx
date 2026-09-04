@@ -7,6 +7,7 @@ import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
 import { seoByPath } from '../data/seo.js'
+import { imagePath } from '../lib/assetPath.js'
 
 const pillars = [
   { icon: Users, name: 'Underserved communities', text: 'Support directed toward communities most often left without consistent resources.' },
@@ -33,9 +34,9 @@ export default function SocialAndCommunityDevelopment() {
         eyebrow="Programme area"
         title="Social & Community Development."
         lead="We work alongside communities — not for them — so that opportunity and support reach further than any one learner or classroom."
-        image="/images/stock-community-playground.jpg"
-        imageWebp="/images/stock-community-playground.webp"
-        imageWebp800w="/images/stock-community-playground-800w.webp"
+        image={imagePath('/images/stock-community-playground.jpg')}
+        imageWebp={imagePath('/images/stock-community-playground.webp')}
+        imageWebp800w={imagePath('/images/stock-community-playground-800w.webp')}
         imageWidth={1920}
         imageHeight={1280}
       />
@@ -65,8 +66,8 @@ export default function SocialAndCommunityDevelopment() {
       <section className="border-y border-line bg-white section-pad">
         <div className="container-px">
           <StockPhoto
-            src="/images/stock-community-playground.jpg"
-            webpSrc="/images/stock-community-playground.webp"
+            src={imagePath('/images/stock-community-playground.jpg')}
+            webpSrc={imagePath('/images/stock-community-playground.webp')}
             alt="A child at a community playground"
             className="min-h-[16rem] rounded-xl lg:min-h-[20rem]"
             width={1920}

@@ -7,6 +7,7 @@ import StockPhoto from '../components/StockPhoto.jsx'
 import { involvementPathways, enquiryTypes, donationNote } from '../data/getInvolved.js'
 import { EFT_DETAILS, PAYMENT_LINK_URL } from '../data/support.js'
 import { seoByPath } from '../data/seo.js'
+import { imagePath } from '../lib/assetPath.js'
 
 export default function GetInvolved() {
   const seo = seoByPath['/get-involved']
@@ -17,9 +18,9 @@ export default function GetInvolved() {
         eyebrow="Get involved"
         title="There is a role here for you."
         lead="Whether you give, partner, volunteer or open a door for a young person, your support becomes a real, structured pathway — not a one-off gesture."
-        image="/images/stock-getinvolved-children-playing.jpg"
-        imageWebp="/images/stock-getinvolved-children-playing.webp"
-        imageWebp800w="/images/stock-getinvolved-children-playing-800w.webp"
+        image={imagePath('/images/stock-getinvolved-children-playing.jpg')}
+        imageWebp={imagePath('/images/stock-getinvolved-children-playing.webp')}
+        imageWebp800w={imagePath('/images/stock-getinvolved-children-playing-800w.webp')}
         imageWidth={1536}
         imageHeight={1920}
       />
@@ -42,8 +43,8 @@ export default function GetInvolved() {
       <section className="border-y border-line bg-white section-pad">
         <div className="container-px">
           <StockPhoto
-            src="/images/stock-getinvolved-children-playing.jpg"
-            webpSrc="/images/stock-getinvolved-children-playing.webp"
+            src={imagePath('/images/stock-getinvolved-children-playing.jpg')}
+            webpSrc={imagePath('/images/stock-getinvolved-children-playing.webp')}
             alt="Children playing together outdoors"
             className="min-h-[16rem] rounded-xl lg:min-h-[20rem]"
             width={1536}

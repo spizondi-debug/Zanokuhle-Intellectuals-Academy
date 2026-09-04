@@ -5,6 +5,7 @@ import Notice from '../components/Notice.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { seoByPath } from '../data/seo.js'
+import { imagePath } from '../lib/assetPath.js'
 import {
   story,
   mission,
@@ -26,8 +27,8 @@ export default function About() {
         eyebrow="About Zanokuhle"
         title="Who we are."
         lead="A South African Non-Profit Organisation and Non-Profit Company building practical pathways in learning, opportunity and community."
-        image="/images/stock-contact-classroom-portrait.jpg"
-        imageWebp="/images/stock-contact-classroom-portrait.webp"
+        image={imagePath('/images/stock-contact-classroom-portrait.jpg')}
+        imageWebp={imagePath('/images/stock-contact-classroom-portrait.webp')}
         imageWidth={1920}
         imageHeight={1280}
       />
@@ -44,8 +45,8 @@ export default function About() {
             </div>
           </div>
           <StockPhoto
-            src="/images/stock-about-learners-uniform.jpg"
-            webpSrc="/images/stock-about-learners-uniform.webp"
+            src={imagePath('/images/stock-about-learners-uniform.jpg')}
+            webpSrc={imagePath('/images/stock-about-learners-uniform.webp')}
             alt="Two school learners in uniform smiling"
             className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}

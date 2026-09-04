@@ -7,11 +7,23 @@ name: CI
 # browser, installed below, but scripts/prerender.mjs itself is written to
 # degrade gracefully (warn, don't fail the build) if that's ever
 # unavailable — see its own comments.
+#
+# A second job, deploy, publishes the site to GitHub Pages on every push
+# to main (not on pull requests) once lint-and-build has passed. It's a
+# separate job rather than reusing lint-and-build's artifact because it
+# needs its own build with different env vars: VITE_SITE_URL set to the
+# real live Pages URL (so canonical/OG/JSON-LD tags are correct there,
+# instead of the placeholder domain lint-and-build deliberately uses) and
+# VITE_BASE_PATH set to the repo subpath GitHub Pages project sites are
+# served under.
 
 on:
   push:
     branches: [main]
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   lint-and-build:
@@ -49,3 +61,53 @@ jobs:
           name: dist
           path: dist
           retention-days: 7
+
+  deploy:
+    needs: lint-and-build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright's Chromium (used by the postbuild prerender step)
+        run: npx playwright install --with-deps chromium
+
+      - name: Build for GitHub Pages
+        run: npm run build
+        env:
+          # Once a real custom domain exists for Zanokuhle, replace both of
+          # these: set VITE_SITE_URL to that domain (as a repo/environment
+          # variable, same as lint-and-build above) and drop VITE_BASE_PATH
+          # entirely — a custom domain serves from the root, not this
+          # project-page subpath.
+          VITE_SITE_URL: https://spizondi-debug.github.io/Zanokuhle-Intellectuals-Academy
+          VITE_BASE_PATH: /Zanokuhle-Intellectuals-Academy/
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

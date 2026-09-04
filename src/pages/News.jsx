@@ -5,6 +5,7 @@ import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import { newsItems, publications } from '../data/news.js'
 import { seoByPath } from '../data/seo.js'
+import { imagePath } from '../lib/assetPath.js'
 
 export default function News() {
   const seo = seoByPath['/news']
@@ -15,9 +16,9 @@ export default function News() {
         eyebrow="News & stories"
         title="What's happening at Zanokuhle."
         lead="Programme updates, learner stories, community activity and reports — published only with the right consent in place."
-        image="/images/stock-news-community-hands.jpg"
-        imageWebp="/images/stock-news-community-hands.webp"
-        imageWebp800w="/images/stock-news-community-hands-800w.webp"
+        image={imagePath('/images/stock-news-community-hands.jpg')}
+        imageWebp={imagePath('/images/stock-news-community-hands.webp')}
+        imageWebp800w={imagePath('/images/stock-news-community-hands-800w.webp')}
         imageWidth={1920}
         imageHeight={1280}
       />

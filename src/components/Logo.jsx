@@ -1,3 +1,5 @@
+import { imagePath } from '../lib/assetPath.js'
+
 /**
  * Logo — the real Zanokuhle Intellectuals Academy mark.
  *
@@ -23,9 +25,9 @@
 export default function Logo({ className = '' }) {
   return (
     <picture className={`inline-flex items-center ${className}`}>
-      <source srcSet="/images/zanokuhle-logo.webp" type="image/webp" />
+      <source srcSet={imagePath('/images/zanokuhle-logo.webp')} type="image/webp" />
       <img
-        src="/images/zanokuhle-logo.png"
+        src={imagePath('/images/zanokuhle-logo.png')}
         alt="Zanokuhle Intellectuals Academy"
         width={600}
         height={575}

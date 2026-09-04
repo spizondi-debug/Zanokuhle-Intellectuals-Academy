@@ -5,6 +5,7 @@ import ProgrammeCard from '../components/ProgrammeCard.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { categories, programmes } from '../data/programmes.js'
 import { seoByPath } from '../data/seo.js'
+import { imagePath } from '../lib/assetPath.js'
 
 export default function Programmes() {
   const [active, setActive] = useState('all')
@@ -18,9 +19,9 @@ export default function Programmes() {
         eyebrow="Our programmes"
         title="Practical pathways, by focus area."
         lead="Every programme is a structured response to a real gap — filter by focus area to explore what we do and who it serves."
-        image="/images/stock-hero-learners-smiling.jpg"
-        imageWebp="/images/stock-hero-learners-smiling.webp"
-        imageWebp800w="/images/stock-hero-learners-smiling-800w.webp"
+        image={imagePath('/images/stock-hero-learners-smiling.jpg')}
+        imageWebp={imagePath('/images/stock-hero-learners-smiling.webp')}
+        imageWebp800w={imagePath('/images/stock-hero-learners-smiling-800w.webp')}
         imageWidth={1280}
         imageHeight={1920}
       />

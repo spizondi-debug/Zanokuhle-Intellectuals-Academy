@@ -7,6 +7,7 @@ import Notice from '../components/Notice.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { alexandraOverview, alexandraJourney, alexandraComponents, alexandraMonitoring } from '../data/alexandra.js'
 import { seoByPath } from '../data/seo.js'
+import { imagePath } from '../lib/assetPath.js'
 
 export default function AlexandraProgramme() {
   const seo = seoByPath['/programmes/alexandra-learner-advancement']
@@ -22,9 +23,9 @@ export default function AlexandraProgramme() {
         eyebrow={`Flagship programme · ${alexandraOverview.duration}`}
         title="Alexandra Learner Advancement Programme."
         lead={alexandraOverview.summary}
-        image="/images/stock-alexandra-classroom.jpg"
-        imageWebp="/images/stock-alexandra-classroom.webp"
-        imageWebp800w="/images/stock-alexandra-classroom-800w.webp"
+        image={imagePath('/images/stock-alexandra-classroom.jpg')}
+        imageWebp={imagePath('/images/stock-alexandra-classroom.webp')}
+        imageWebp800w={imagePath('/images/stock-alexandra-classroom-800w.webp')}
         imageWidth={1920}
         imageHeight={1278}
       />
@@ -33,8 +34,8 @@ export default function AlexandraProgramme() {
       <section className="section-pad">
         <div className="container-px grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <StockPhoto
-            src="/images/stock-alexandra-classroom.jpg"
-            webpSrc="/images/stock-alexandra-classroom.webp"
+            src={imagePath('/images/stock-alexandra-classroom.jpg')}
+            webpSrc={imagePath('/images/stock-alexandra-classroom.webp')}
             alt="Learners seated at desks in a classroom"
             className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}

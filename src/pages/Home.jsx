@@ -3,6 +3,7 @@ import { ArrowRight, GraduationCap, BookOpen, Laptop2, Users2, TrendingUp } from
 import SEO from '../components/SEO.jsx'
 import { seoByPath } from '../data/seo.js'
 import StockPhoto from '../components/StockPhoto.jsx'
+import { imagePath } from '../lib/assetPath.js'
 import { SectionHeading, Accent } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
 import { focusAreas, howWeCreateChange } from '../data/focusAreas.js'
@@ -51,11 +52,11 @@ export default function Home() {
         <picture>
           <source
             type="image/webp"
-            srcSet="/images/stock-hero-learners-smiling-800w.webp 800w, /images/stock-hero-learners-smiling.webp 1280w"
+            srcSet={`${imagePath('/images/stock-hero-learners-smiling-800w.webp')} 800w, ${imagePath('/images/stock-hero-learners-smiling.webp')} 1280w`}
             sizes="100vw"
           />
           <img
-            src="/images/stock-hero-learners-smiling.jpg"
+            src={imagePath('/images/stock-hero-learners-smiling.jpg')}
             alt=""
             aria-hidden="true"
             width={1280}
@@ -145,8 +146,8 @@ export default function Home() {
       <section className="border-y border-line bg-blue-pale/40 section-pad">
         <div className="container-px grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <StockPhoto
-            src="/images/stock-featured-programme-children.jpg"
-            webpSrc="/images/stock-featured-programme-children.webp"
+            src={imagePath('/images/stock-featured-programme-children.jpg')}
+            webpSrc={imagePath('/images/stock-featured-programme-children.webp')}
             alt="A group of children laughing together"
             className="min-h-[16rem] rounded-xl lg:min-h-[22rem]"
             width={1920}

@@ -8,6 +8,7 @@ import { CONTACT, REGISTRATION, mission, IS_EMAIL_UNCONFIRMED } from '../data/or
 import { seoByPath } from '../data/seo.js'
 import { faqPageJsonLd } from '../lib/jsonld.js'
 import { trackEvent } from '../lib/analytics.js'
+import { imagePath } from '../lib/assetPath.js'
 
 const generalEnquiryTypes = [
   'General enquiry',
@@ -61,9 +62,9 @@ export default function Contact() {
         eyebrow="Contact us"
         title="Let's talk."
         lead="Whether you're a parent, a school, a funder or simply curious about our work, we'd like to hear from you."
-        image="/images/stock-contact-phone-office.jpg"
-        imageWebp="/images/stock-contact-phone-office.webp"
-        imageWebp800w="/images/stock-contact-phone-office-800w.webp"
+        image={imagePath('/images/stock-contact-phone-office.jpg')}
+        imageWebp={imagePath('/images/stock-contact-phone-office.webp')}
+        imageWebp800w={imagePath('/images/stock-contact-phone-office-800w.webp')}
         imageWidth={1281}
         imageHeight={1920}
       />
@@ -72,8 +73,8 @@ export default function Contact() {
         <div className="container-px grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div className="space-y-6">
             <StockPhoto
-              src="/images/stock-contact-phone-office.jpg"
-              webpSrc="/images/stock-contact-phone-office.webp"
+              src={imagePath('/images/stock-contact-phone-office.jpg')}
+              webpSrc={imagePath('/images/stock-contact-phone-office.webp')}
               alt="A person in business attire checking messages on a smartphone"
               className="h-40 rounded-xl"
               width={1281}

@@ -9,6 +9,7 @@ import CTABand from '../components/CTABand.jsx'
 import { programmesIn } from '../data/programmes.js'
 import { SAFEGUARDING_NOTE } from '../data/org.js'
 import { seoByPath } from '../data/seo.js'
+import { imagePath } from '../lib/assetPath.js'
 
 const pillars = [
   { icon: Sprout, name: 'School readiness', text: 'Structured activities that build the readiness children need before starting formal school.' },
@@ -35,9 +36,9 @@ export default function EarlyChildhoodDevelopment() {
         eyebrow="Programme area"
         title="Early Childhood Development."
         lead="Giving young children the early foundations they need — and supporting the practitioners, parents and caregivers around them."
-        image="/images/ecd-child-painting.jpg"
-        imageWebp="/images/ecd-child-painting.webp"
-        imageWebp800w="/images/ecd-child-painting-800w.webp"
+        image={imagePath('/images/ecd-child-painting.jpg')}
+        imageWebp={imagePath('/images/ecd-child-painting.webp')}
+        imageWebp800w={imagePath('/images/ecd-child-painting-800w.webp')}
         imageWidth={1280}
         imageHeight={1920}
       />
@@ -59,8 +60,8 @@ export default function EarlyChildhoodDevelopment() {
             </div>
           </div>
           <StockPhoto
-            src="/images/ecd-child-painting.jpg"
-            webpSrc="/images/ecd-child-painting.webp"
+            src={imagePath('/images/ecd-child-painting.jpg')}
+            webpSrc={imagePath('/images/ecd-child-painting.webp')}
             alt="A young child painting during an early-learning activity"
             className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1280}

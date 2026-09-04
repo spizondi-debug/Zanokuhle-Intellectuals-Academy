@@ -7,6 +7,8 @@
 // describing an activity or outcome over identifying an individual child
 // where consent has not been confirmed.
 
+import { imagePath } from '../lib/assetPath.js'
+
 export const newsCategories = ['Programme Update', 'Learner Story', 'Community', 'Partner Announcement', 'Event', 'Report']
 
 export const newsItems = [
@@ -19,8 +21,8 @@ export const newsItems = [
     // Generic stock/reference image, not a Zanokuhle photograph — safe as
     // scene-setting for a programme-activity update. See StockPhoto.jsx.
     image: {
-      src: '/images/stock-news-lego-hands.jpg',
-      webpSrc: '/images/stock-news-lego-hands.webp',
+      src: imagePath('/images/stock-news-lego-hands.jpg'),
+      webpSrc: imagePath('/images/stock-news-lego-hands.webp'),
       alt: 'Hands assembling a robotics kit',
       width: 1920,
       height: 1280,
@@ -39,8 +41,8 @@ export const newsItems = [
     // be mistaken for the actual learner. Replace with a real, consented
     // photo once a specific learner story is confirmed, and drop the flag.
     image: {
-      src: '/images/stock-contact-classroom-portrait.jpg',
-      webpSrc: '/images/stock-contact-classroom-portrait.webp',
+      src: imagePath('/images/stock-contact-classroom-portrait.jpg'),
+      webpSrc: imagePath('/images/stock-contact-classroom-portrait.webp'),
       alt: 'Generic stock photo of a child in a classroom, used only to illustrate this story — not a photograph of the learner featured',
       width: 1920,
       height: 1280,
@@ -54,8 +56,8 @@ export const newsItems = [
     date: null,
     excerpt: 'A short recap of a community activity or event goes here once confirmed. Replace this placeholder before publishing.',
     image: {
-      src: '/images/stock-news-community-hands.jpg',
-      webpSrc: '/images/stock-news-community-hands.webp',
+      src: imagePath('/images/stock-news-community-hands.jpg'),
+      webpSrc: imagePath('/images/stock-news-community-hands.webp'),
       alt: 'A group of children reaching out together',
       width: 1920,
       height: 1280,
@@ -68,8 +70,8 @@ export const newsItems = [
     date: null,
     excerpt: 'A partner or funding announcement goes here once confirmed by both parties. Replace this placeholder before publishing.',
     image: {
-      src: '/images/stock-news-robot-car.jpg',
-      webpSrc: '/images/stock-news-robot-car.webp',
+      src: imagePath('/images/stock-news-robot-car.jpg'),
+      webpSrc: imagePath('/images/stock-news-robot-car.webp'),
       alt: 'A small robotics project built by learners',
       width: 1920,
       height: 897,
