@@ -2,17 +2,18 @@
 // via scripts/generate-seo-files.mjs, public/robots.txt and
 // public/sitemap.xml.
 //
-// SITE_URL reads from the VITE_SITE_URL environment variable — set it in
-// your deployment platform's environment-variable settings (Netlify,
-// Vercel, Cloudflare Pages, etc. all support this) or in a local
-// .env.production file (not committed) before building for production.
-// No domain is invented here: with the variable unset, this falls back to
-// a clearly-marked placeholder so local builds still work, but that
-// placeholder must never reach production — scripts/generate-seo-files.mjs
-// prints a warning at build time if it's still in use.
-const PLACEHOLDER_SITE_URL = 'https://www.zanokuhleacademy.org.za'
-export const SITE_URL = import.meta.env.VITE_SITE_URL || PLACEHOLDER_SITE_URL
-export const IS_PLACEHOLDER_SITE_URL = SITE_URL === PLACEHOLDER_SITE_URL
+// The organisation's live domain. Every absolute URL the site emits —
+// canonical tags, Open Graph/Twitter URLs, JSON-LD, robots.txt and
+// sitemap.xml — is derived from this single value, so there is exactly
+// one place to change if the domain ever moves.
+//
+// VITE_SITE_URL still overrides it at build time (useful for a staging
+// deploy on a different hostname), but is no longer required: with
+// nothing set, a build now produces correct production URLs rather than
+// a placeholder. The trailing slash is stripped so callers can safely
+// append paths as `${SITE_URL}/about`.
+const DEFAULT_SITE_URL = 'https://zanokuhleintellectuals.co.za'
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '')
 
 export const SITE_NAME = 'Zanokuhle Intellectuals Academy'
 

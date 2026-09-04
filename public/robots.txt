@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.zanokuhleacademy.org.za/sitemap.xml
+Sitemap: https://zanokuhleintellectuals.co.za/sitemap.xml

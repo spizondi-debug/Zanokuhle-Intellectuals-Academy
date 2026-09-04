@@ -6,32 +6,19 @@
  * Runs automatically before every `npm run build` (see package.json's
  * "prebuild" script — npm runs it for you, no need to call this directly).
  *
- * Reads the domain from the VITE_SITE_URL environment variable — the same
- * variable src/lib/siteConfig.js reads at runtime via import.meta.env.
- * Plain Node scripts don't get Vite's automatic .env loading, so set this
- * as a real environment variable in your deployment platform (Netlify,
- * Vercel, Cloudflare Pages, etc. all support this in project settings) or
- * export it in your shell before building. Falls back to the same
- * placeholder domain siteConfig.js uses when unset, so local builds still
- * work — but that placeholder must not go to production. See
- * siteConfig.js for the full explanation.
+ * The domain defaults to the organisation's live domain, mirroring
+ * DEFAULT_SITE_URL in src/lib/siteConfig.js — the two constants must stay
+ * in step, since a plain Node script can't read the Vite-flavoured
+ * `import.meta.env` that siteConfig.js uses. VITE_SITE_URL overrides it
+ * for a staging build on a different hostname.
  */
 import fs from 'node:fs'
 import path from 'node:path'
 import { seoByPath } from '../src/data/seo.js'
 
-const PLACEHOLDER_SITE_URL = 'https://www.zanokuhleacademy.org.za'
-const siteUrl = (process.env.VITE_SITE_URL || PLACEHOLDER_SITE_URL).replace(/\/$/, '')
-const isPlaceholder = siteUrl === PLACEHOLDER_SITE_URL
-
-if (isPlaceholder) {
-  console.warn(
-    '\n⚠️  generate-seo-files: VITE_SITE_URL is not set — robots.txt and sitemap.xml are being generated ' +
-      'against the placeholder domain (' +
-      PLACEHOLDER_SITE_URL +
-      '). Set VITE_SITE_URL to the real domain before a production deploy.\n',
-  )
-}
+// Keep in sync with DEFAULT_SITE_URL in src/lib/siteConfig.js.
+const DEFAULT_SITE_URL = 'https://zanokuhleintellectuals.co.za'
+const siteUrl = (process.env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '')
 
 // changefreq/priority per route — matches the hand-tuned values from the
 // original SEO pass (home = highest priority/most frequent, contact/get-

@@ -48,11 +48,11 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # Unset in CI on purpose — no real domain is configured here.
-          # scripts/generate-seo-files.mjs falls back to a clearly-marked
-          # placeholder and warns rather than failing; set this as a repo
-          # or environment secret/variable once a real domain exists, so
-          # production deploys build against it instead.
+          # Normally empty, and that's correct: the real domain is now the
+          # built-in default (src/lib/siteConfig.js), so an unset variable
+          # produces correct production URLs. This override exists only so
+          # a fork or a staging environment can point builds at a different
+          # hostname by setting a repository variable.
           VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
 
       - name: Upload build output
@@ -91,14 +91,12 @@ jobs:
 
       - name: Build for GitHub Pages
         run: npm run build
-        env:
-          # Once a real custom domain exists for Zanokuhle, replace both of
-          # these: set VITE_SITE_URL to that domain (as a repo/environment
-          # variable, same as lint-and-build above) and drop VITE_BASE_PATH
-          # entirely — a custom domain serves from the root, not this
-          # project-page subpath.
-          VITE_SITE_URL: https://spizondi-debug.github.io/Zanokuhle-Intellectuals-Academy
-          VITE_BASE_PATH: /Zanokuhle-Intellectuals-Academy/
+        # No VITE_SITE_URL or VITE_BASE_PATH needed any more. The site is
+        # served from the custom domain zanokuhleintellectuals.co.za at its
+        # root, which is exactly what the defaults now produce:
+        # src/lib/siteConfig.js defaults to that domain, and vite.config.js
+        # defaults `base` to "/". public/CNAME is what tells GitHub Pages to
+        # serve the custom domain instead of the /<repo>/ project subpath.
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
