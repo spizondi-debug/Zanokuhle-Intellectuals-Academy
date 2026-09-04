@@ -102,6 +102,15 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          # v5's own default is false, which only reads the Pages site's
+          # existing config — on a repo where Pages has never been
+          # enabled, that 404s ("Get Pages site failed ... Not Found")
+          # instead of creating it. true makes it create the site (source:
+          # GitHub Actions) via the API using this job's `pages: write`
+          # permission, so the very first run succeeds without anyone
+          # needing to click through Settings → Pages by hand first.
+          enablement: true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
