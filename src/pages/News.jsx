@@ -1,7 +1,6 @@
 import SEO from '../components/SEO.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
-import Notice from '../components/Notice.jsx'
 import PhotoPlaceholder from '../components/PhotoPlaceholder.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import { newsItems, publications } from '../data/news.js'
@@ -23,14 +22,7 @@ export default function News() {
 
       <section className="section-pad">
         <div className="container-px">
-          <Notice icon="shield" tone="blue">
-            Content guidance: any photograph, name or personal story involving a child or minor learner is
-            published only with the documented, informed consent of a parent or guardian. Placeholder
-            entries below must not be replaced with a real child's story or image until that consent is
-            confirmed and on file.
-          </Notice>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2">
             {newsItems.map((item) => (
               <article key={item.slug} className="card overflow-hidden">
                 {item.image ? (
