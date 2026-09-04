@@ -39,6 +39,8 @@ export default function SkillsAndYouthDevelopment() {
         title="Skills & Youth Development."
         lead="Digital literacy, career readiness, entrepreneurship and leadership — practical skills that open real pathways beyond school."
         image="/images/stock-skills-coding-robotics.jpg"
+        imageWebp="/images/stock-skills-coding-robotics.webp"
+        imageWebp800w="/images/stock-skills-coding-robotics-800w.webp"
         imageWidth={1920}
         imageHeight={1280}
       />
@@ -47,6 +49,7 @@ export default function SkillsAndYouthDevelopment() {
         <div className="container-px grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <StockPhoto
             src="/images/stock-skills-coding-robotics.jpg"
+            webpSrc="/images/stock-skills-coding-robotics.webp"
             alt="Young people working together on a coding and robotics project"
             className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}

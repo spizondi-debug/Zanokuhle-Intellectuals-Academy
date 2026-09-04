@@ -1,0 +1,7 @@
+# Netlify-style SPA fallback: routes not matched by a static file (i.e.
+# not one of the prerendered pages — see scripts/prerender.mjs) fall back
+# to the app shell, so client-side routing (react-router) handles them,
+# including showing the real 404 page for a genuinely unknown path.
+# Ignored by hosts that don't use this convention (e.g. GitHub Pages uses
+# dist/404.html instead, which prerender.mjs also writes).
+/*  /index.html  200

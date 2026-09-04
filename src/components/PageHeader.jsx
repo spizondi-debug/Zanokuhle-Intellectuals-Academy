@@ -15,24 +15,53 @@ import PhotoPlaceholder from './PhotoPlaceholder.jsx'
  * This image is the Largest Contentful Paint candidate on every page it
  * appears on (it's the biggest thing painted, first, on every interior
  * page), so it loads eager/high-priority rather than the lazy default
- * StockPhoto uses for below-the-fold body images.
+ * StockPhoto uses for below-the-fold body images — and, when `imageWebp`/
+ * `imageWebp800w` are given (literal paths, same rule as StockPhoto.jsx),
+ * offers a WebP source with a smaller 800px-wide variant for narrow
+ * viewports, since this photo renders full-viewport-width on every
+ * device.
  */
-export default function PageHeader({ eyebrow, title, lead, image, imageWidth, imageHeight, tone = 'turquoise', children }) {
+export default function PageHeader({
+  eyebrow,
+  title,
+  lead,
+  image,
+  imageWidth,
+  imageHeight,
+  imageWebp,
+  imageWebp800w,
+  tone = 'turquoise',
+  children,
+}) {
+  const heroImg = (
+    <img
+      src={image}
+      alt=""
+      aria-hidden="true"
+      width={imageWidth}
+      height={imageHeight}
+      loading="eager"
+      fetchPriority="high"
+      decoding="async"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+  )
   return (
     <section className="relative overflow-hidden bg-turquoise-deep">
       {image ? (
         <>
-          <img
-            src={image}
-            alt=""
-            aria-hidden="true"
-            width={imageWidth}
-            height={imageHeight}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          {imageWebp ? (
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={imageWebp800w ? `${imageWebp800w} 800w, ${imageWebp} ${imageWidth}w` : imageWebp}
+                sizes={imageWebp800w ? '100vw' : undefined}
+              />
+              {heroImg}
+            </picture>
+          ) : (
+            heroImg
+          )}
           <div className="absolute inset-0 bg-turquoise-deep/85" aria-hidden="true" />
         </>
       ) : (

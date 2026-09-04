@@ -17,6 +17,9 @@ const GetInvolved = lazy(() => import('./pages/GetInvolved.jsx'))
 const Impact = lazy(() => import('./pages/Impact.jsx'))
 const News = lazy(() => import('./pages/News.jsx'))
 const Contact = lazy(() => import('./pages/Contact.jsx'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy.jsx'))
+const Safeguarding = lazy(() => import('./pages/Safeguarding.jsx'))
+const TermsOfUse = lazy(() => import('./pages/TermsOfUse.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
 export default function App() {
@@ -40,6 +43,9 @@ export default function App() {
             <Route path="/impact" element={<Impact />} />
             <Route path="/news" element={<News />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/safeguarding" element={<Safeguarding />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

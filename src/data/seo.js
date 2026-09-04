@@ -138,6 +138,32 @@ export const seoByPath = {
     intent: 'TRANS — ready to make direct contact',
     breadcrumb: [{ name: 'Contact', path: '/contact' }],
   },
+  '/privacy-policy': {
+    title: 'Privacy Policy | Zanokuhle Intellectuals Academy',
+    description:
+      'How Zanokuhle Intellectuals Academy collects, uses and protects personal information submitted through this website.',
+    primaryKeyword: 'Zanokuhle Intellectuals Academy',
+    supportingKeywords: ['nonprofit organisation South Africa'],
+    intent: 'INFO — reviewing data-handling before submitting personal information',
+    breadcrumb: [{ name: 'Privacy Policy', path: '/privacy-policy' }],
+  },
+  '/safeguarding': {
+    title: 'Child Safeguarding | Zanokuhle Intellectuals Academy',
+    description:
+      'How Zanokuhle Intellectuals Academy approaches the safety, dignity and consent of the children and young people in its programmes.',
+    primaryKeyword: 'Zanokuhle Intellectuals Academy',
+    supportingKeywords: ['nonprofit organisation South Africa', 'early childhood development South Africa'],
+    intent: 'INFO — parents, schools and funders verifying child-safety commitments',
+    breadcrumb: [{ name: 'Child Safeguarding', path: '/safeguarding' }],
+  },
+  '/terms-of-use': {
+    title: 'Terms of Use | Zanokuhle Intellectuals Academy',
+    description: 'The terms that apply to using the Zanokuhle Intellectuals Academy website.',
+    primaryKeyword: 'Zanokuhle Intellectuals Academy',
+    supportingKeywords: ['nonprofit organisation South Africa'],
+    intent: 'INFO — reviewing site terms',
+    breadcrumb: [{ name: 'Terms of Use', path: '/terms-of-use' }],
+  },
 }
 
 // Rendered on every route as a fallback and used verbatim on the 404 page.

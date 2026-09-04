@@ -49,4 +49,12 @@ export const footerNav = [
       { label: 'CSI Partnership', to: '/get-involved#csi' },
     ],
   },
+  {
+    heading: 'Legal',
+    links: [
+      { label: 'Privacy Policy', to: '/privacy-policy' },
+      { label: 'Child Safeguarding', to: '/safeguarding' },
+      { label: 'Terms of Use', to: '/terms-of-use' },
+    ],
+  },
 ]

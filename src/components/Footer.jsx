@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin } from 'lucide-react'
 import { FacebookIcon, InstagramIcon, LinkedinIcon } from './SocialIcons.jsx'
 import Logo from './Logo.jsx'
 import { footerNav } from '../data/nav.js'
-import { CONTACT, REGISTRATION, SOCIALS } from '../data/org.js'
+import { CONTACT, REGISTRATION, SOCIALS, IS_EMAIL_UNCONFIRMED } from '../data/org.js'
 import { trackEvent } from '../lib/analytics.js'
 
 export default function Footer() {
@@ -13,25 +13,51 @@ export default function Footer() {
       <div className="container-px py-14 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_2fr]">
           <div>
-            <Logo light />
+            <Logo />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/65">
               Practical pathways in learning, opportunity and community for children, young people and
               underserved communities across South Africa.
             </p>
-            <div className="mt-6 flex items-center gap-3">
-              <a href={SOCIALS.facebook} aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:border-white/50">
-                <FacebookIcon className="h-4 w-4" />
-              </a>
-              <a href={SOCIALS.instagram} aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:border-white/50">
-                <InstagramIcon className="h-4 w-4" />
-              </a>
-              <a href={SOCIALS.linkedin} aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:border-white/50">
-                <LinkedinIcon className="h-4 w-4" />
-              </a>
-            </div>
+            {(SOCIALS.facebook || SOCIALS.instagram || SOCIALS.linkedin) && (
+              <div className="mt-6 flex items-center gap-3">
+                {SOCIALS.facebook && (
+                  <a
+                    href={SOCIALS.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:border-white/50"
+                  >
+                    <FacebookIcon className="h-4 w-4" />
+                  </a>
+                )}
+                {SOCIALS.instagram && (
+                  <a
+                    href={SOCIALS.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:border-white/50"
+                  >
+                    <InstagramIcon className="h-4 w-4" />
+                  </a>
+                )}
+                {SOCIALS.linkedin && (
+                  <a
+                    href={SOCIALS.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:border-white/50"
+                  >
+                    <LinkedinIcon className="h-4 w-4" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-3">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {footerNav.map((group) => (
               <div key={group.heading}>
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/55">{group.heading}</p>
@@ -59,6 +85,7 @@ export default function Footer() {
             >
               {CONTACT.email}
             </a>
+            {IS_EMAIL_UNCONFIRMED && <span className="text-[0.65rem] text-white/40"> (unconfirmed)</span>}
           </div>
           <div className="flex items-start gap-2.5">
             <Phone size={16} className="mt-0.5 shrink-0 text-yellow" aria-hidden="true" />

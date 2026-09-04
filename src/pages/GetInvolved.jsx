@@ -5,6 +5,7 @@ import EnquiryForm from '../components/EnquiryForm.jsx'
 import Notice from '../components/Notice.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
 import { involvementPathways, enquiryTypes, donationNote } from '../data/getInvolved.js'
+import { EFT_DETAILS, PAYMENT_LINK_URL } from '../data/support.js'
 import { seoByPath } from '../data/seo.js'
 
 export default function GetInvolved() {
@@ -17,6 +18,8 @@ export default function GetInvolved() {
         title="There is a role here for you."
         lead="Whether you give, partner, volunteer or open a door for a young person, your support becomes a real, structured pathway — not a one-off gesture."
         image="/images/stock-getinvolved-children-playing.jpg"
+        imageWebp="/images/stock-getinvolved-children-playing.webp"
+        imageWebp800w="/images/stock-getinvolved-children-playing-800w.webp"
         imageWidth={1536}
         imageHeight={1920}
       />
@@ -40,6 +43,7 @@ export default function GetInvolved() {
         <div className="container-px">
           <StockPhoto
             src="/images/stock-getinvolved-children-playing.jpg"
+            webpSrc="/images/stock-getinvolved-children-playing.webp"
             alt="Children playing together outdoors"
             className="min-h-[16rem] rounded-xl lg:min-h-[20rem]"
             width={1536}
@@ -56,8 +60,41 @@ export default function GetInvolved() {
               Fill in the form and let us know what you have in mind — our team will follow up to talk
               through the details.
             </p>
-            <div className="mt-6">
+            <div className="mt-6 space-y-4">
               <Notice icon="info" tone="green">{donationNote}</Notice>
+              {PAYMENT_LINK_URL && (
+                <a href={PAYMENT_LINK_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full sm:w-auto">
+                  Give Securely Online
+                </a>
+              )}
+              {EFT_DETAILS && (
+                <div className="card-hover">
+                  <h3 className="font-bold text-turquoise-deep">EFT donation details</h3>
+                  <dl className="mt-3 space-y-1.5 text-sm text-body">
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-muted">Account name</dt>
+                      <dd className="font-semibold text-ink">{EFT_DETAILS.accountName}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-muted">Bank</dt>
+                      <dd className="font-semibold text-ink">{EFT_DETAILS.bank}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-muted">Account type</dt>
+                      <dd className="font-semibold text-ink">{EFT_DETAILS.accountType}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-muted">Account number</dt>
+                      <dd className="font-semibold text-ink">{EFT_DETAILS.accountNumber}</dd>
+                    </div>
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-muted">Branch code</dt>
+                      <dd className="font-semibold text-ink">{EFT_DETAILS.branchCode}</dd>
+                    </div>
+                  </dl>
+                  <p className="mt-3 text-xs text-muted">{EFT_DETAILS.reference}</p>
+                </div>
+              )}
             </div>
           </div>
           <EnquiryForm enquiryTypes={enquiryTypes} submitLabel="Send Enquiry" formName="get_involved" />

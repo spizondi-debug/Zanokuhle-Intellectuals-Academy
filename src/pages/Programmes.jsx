@@ -19,6 +19,8 @@ export default function Programmes() {
         title="Practical pathways, by focus area."
         lead="Every programme is a structured response to a real gap — filter by focus area to explore what we do and who it serves."
         image="/images/stock-hero-learners-smiling.jpg"
+        imageWebp="/images/stock-hero-learners-smiling.webp"
+        imageWebp800w="/images/stock-hero-learners-smiling-800w.webp"
         imageWidth={1280}
         imageHeight={1920}
       />

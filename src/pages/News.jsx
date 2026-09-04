@@ -16,6 +16,8 @@ export default function News() {
         title="What's happening at Zanokuhle."
         lead="Programme updates, learner stories, community activity and reports — published only with the right consent in place."
         image="/images/stock-news-community-hands.jpg"
+        imageWebp="/images/stock-news-community-hands.webp"
+        imageWebp800w="/images/stock-news-community-hands-800w.webp"
         imageWidth={1920}
         imageHeight={1280}
       />
@@ -29,6 +31,7 @@ export default function News() {
                   <div className="relative">
                     <StockPhoto
                       src={item.image.src}
+                      webpSrc={item.image.webpSrc}
                       alt={item.image.alt}
                       width={item.image.width}
                       height={item.image.height}

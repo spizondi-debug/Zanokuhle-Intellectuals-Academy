@@ -5,7 +5,6 @@ import { seoByPath } from '../data/seo.js'
 import StockPhoto from '../components/StockPhoto.jsx'
 import { SectionHeading, Accent } from '../components/Section.jsx'
 import CTABand from '../components/CTABand.jsx'
-import ProgrammeCard from '../components/ProgrammeCard.jsx'
 import { focusAreas, howWeCreateChange } from '../data/focusAreas.js'
 import { programmes } from '../data/programmes.js'
 import { impactAreas } from '../data/impact.js'
@@ -49,17 +48,24 @@ export default function Home() {
           text stays reliably legible across the whole photo, not just
           wherever it happens to be darkest. */}
       <section className="relative overflow-hidden bg-turquoise-deep">
-        <img
-          src="/images/stock-hero-learners-smiling.jpg"
-          alt=""
-          aria-hidden="true"
-          width={1280}
-          height={1920}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet="/images/stock-hero-learners-smiling-800w.webp 800w, /images/stock-hero-learners-smiling.webp 1280w"
+            sizes="100vw"
+          />
+          <img
+            src="/images/stock-hero-learners-smiling.jpg"
+            alt=""
+            aria-hidden="true"
+            width={1280}
+            height={1920}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
         <div className="absolute inset-0 bg-turquoise-deep/85" aria-hidden="true" />
         <div className="container-px relative py-16 lg:py-24">
           <div className="max-w-2xl">
@@ -140,6 +146,7 @@ export default function Home() {
         <div className="container-px grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <StockPhoto
             src="/images/stock-featured-programme-children.jpg"
+            webpSrc="/images/stock-featured-programme-children.webp"
             alt="A group of children laughing together"
             className="min-h-[16rem] rounded-xl lg:min-h-[22rem]"
             width={1920}

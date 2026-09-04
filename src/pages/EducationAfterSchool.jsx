@@ -31,6 +31,8 @@ export default function EducationAfterSchool() {
         title="Education & After-School Programmes."
         lead="Consistent academic support that keeps learners progressing — tutoring, homework support, mentorship and the resources behind them."
         image="/images/stock-education-classroom-desks.jpg"
+        imageWebp="/images/stock-education-classroom-desks.webp"
+        imageWebp800w="/images/stock-education-classroom-desks-800w.webp"
         imageWidth={1920}
         imageHeight={1080}
       />
@@ -55,6 +57,7 @@ export default function EducationAfterSchool() {
           </div>
           <StockPhoto
             src="/images/stock-education-classroom-desks.jpg"
+            webpSrc="/images/stock-education-classroom-desks.webp"
             alt="Learners at desks in a classroom, engaged in a lesson"
             className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}

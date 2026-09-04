@@ -27,6 +27,7 @@ export default function About() {
         title="Who we are."
         lead="A South African Non-Profit Organisation and Non-Profit Company building practical pathways in learning, opportunity and community."
         image="/images/stock-contact-classroom-portrait.jpg"
+        imageWebp="/images/stock-contact-classroom-portrait.webp"
         imageWidth={1920}
         imageHeight={1280}
       />
@@ -44,6 +45,7 @@ export default function About() {
           </div>
           <StockPhoto
             src="/images/stock-about-learners-uniform.jpg"
+            webpSrc="/images/stock-about-learners-uniform.webp"
             alt="Two school learners in uniform smiling"
             className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}

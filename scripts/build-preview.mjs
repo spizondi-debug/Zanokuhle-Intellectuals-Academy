@@ -1,13 +1,12 @@
 /**
  * Build a single self-contained HTML file of the whole site, for sharing a
  * preview that needs no server. JS and CSS are inlined, and every image
- * under public/images/ (currently just the logo — everything else is an
- * inline SVG PhotoPlaceholder) is rewritten to a data URI, since a
- * server-less page has no origin to fetch /images/* from. Poppins still
- * loads from Google Fonts over the network. VITE_HASH_ROUTER switches
- * routing to hashes and collapses code-splitting into one bundle (see
- * src/main.jsx and vite.config.js) — deployed builds keep clean paths and
- * per-route chunks.
+ * under public/images/ (photos and WebP variants alike) is rewritten to a
+ * data URI, since a server-less page has no origin to fetch /images/*
+ * from. Poppins still loads from Google Fonts over the network.
+ * VITE_HASH_ROUTER switches routing to hashes and collapses code-splitting
+ * into one bundle (see src/main.jsx and vite.config.js) — deployed builds
+ * keep clean paths and per-route chunks.
  *
  *   npm run build:preview   ->  preview/zanokuhle-preview.html
  */

@@ -1,0 +1,51 @@
+name: CI
+
+# Runs the same checks a contributor should run locally before pushing —
+# lint and a production build — on every push and pull request against
+# main. The build step also exercises scripts/generate-seo-files.mjs and
+# scripts/prerender.mjs (see those files); prerendering needs a Chromium
+# browser, installed below, but scripts/prerender.mjs itself is written to
+# degrade gracefully (warn, don't fail the build) if that's ever
+# unavailable — see its own comments.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Install Playwright's Chromium (used by the postbuild prerender step)
+        run: npx playwright install --with-deps chromium
+
+      - name: Build
+        run: npm run build
+        env:
+          # Unset in CI on purpose — no real domain is configured here.
+          # scripts/generate-seo-files.mjs falls back to a clearly-marked
+          # placeholder and warns rather than failing; set this as a repo
+          # or environment secret/variable once a real domain exists, so
+          # production deploys build against it instead.
+          VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7

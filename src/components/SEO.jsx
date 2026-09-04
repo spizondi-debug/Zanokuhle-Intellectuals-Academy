@@ -1,5 +1,13 @@
 import { Helmet } from 'react-helmet-async'
-import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, TWITTER_HANDLE } from '../lib/siteConfig.js'
+import {
+  SITE_URL,
+  SITE_NAME,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_WIDTH,
+  DEFAULT_OG_IMAGE_HEIGHT,
+  DEFAULT_OG_IMAGE_ALT,
+  TWITTER_HANDLE,
+} from '../lib/siteConfig.js'
 import { organizationJsonLd, websiteJsonLd, webPageJsonLd, breadcrumbJsonLd } from '../lib/jsonld.js'
 
 /**
@@ -21,6 +29,9 @@ export default function SEO({
   pageType = 'WebPage',
   breadcrumb,
   image = DEFAULT_OG_IMAGE,
+  imageAlt = DEFAULT_OG_IMAGE_ALT,
+  imageWidth = DEFAULT_OG_IMAGE_WIDTH,
+  imageHeight = DEFAULT_OG_IMAGE_HEIGHT,
   noindex = false,
   extraJsonLd = [],
 }) {
@@ -47,6 +58,9 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:alt" content={imageAlt} />
+      <meta property="og:image:width" content={String(imageWidth)} />
+      <meta property="og:image:height" content={String(imageHeight)} />
       <meta property="og:locale" content="en_ZA" />
 
       {/* Twitter / X Card */}

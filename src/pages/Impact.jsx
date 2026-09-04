@@ -27,6 +27,8 @@ export default function Impact() {
         title="How we measure and report our work."
         lead="Real accountability means describing what we track honestly — including where we don't yet have a confirmed figure to share."
         image="/images/stock-impact-boy-writing.jpg"
+        imageWebp="/images/stock-impact-boy-writing.webp"
+        imageWebp800w="/images/stock-impact-boy-writing-800w.webp"
         imageWidth={1920}
         imageHeight={1536}
       />
@@ -70,6 +72,7 @@ export default function Impact() {
           </div>
           <StockPhoto
             src="/images/stock-impact-boy-writing.jpg"
+            webpSrc="/images/stock-impact-boy-writing.webp"
             alt="A child writing and colouring in a notebook"
             className="min-h-[16rem] rounded-xl lg:min-h-full"
             width={1920}

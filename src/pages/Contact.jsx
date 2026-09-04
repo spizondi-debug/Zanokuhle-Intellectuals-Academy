@@ -4,7 +4,7 @@ import PageHeader from '../components/PageHeader.jsx'
 import { SectionHeading } from '../components/Section.jsx'
 import EnquiryForm from '../components/EnquiryForm.jsx'
 import StockPhoto from '../components/StockPhoto.jsx'
-import { CONTACT, REGISTRATION, mission } from '../data/org.js'
+import { CONTACT, REGISTRATION, mission, IS_EMAIL_UNCONFIRMED } from '../data/org.js'
 import { seoByPath } from '../data/seo.js'
 import { faqPageJsonLd } from '../lib/jsonld.js'
 import { trackEvent } from '../lib/analytics.js'
@@ -62,6 +62,8 @@ export default function Contact() {
         title="Let's talk."
         lead="Whether you're a parent, a school, a funder or simply curious about our work, we'd like to hear from you."
         image="/images/stock-contact-phone-office.jpg"
+        imageWebp="/images/stock-contact-phone-office.webp"
+        imageWebp800w="/images/stock-contact-phone-office-800w.webp"
         imageWidth={1281}
         imageHeight={1920}
       />
@@ -71,6 +73,7 @@ export default function Contact() {
           <div className="space-y-6">
             <StockPhoto
               src="/images/stock-contact-phone-office.jpg"
+              webpSrc="/images/stock-contact-phone-office.webp"
               alt="A person in business attire checking messages on a smartphone"
               className="h-40 rounded-xl"
               width={1281}
@@ -116,10 +119,12 @@ export default function Contact() {
               <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted">Office hours</p>
               <p className="mt-1 font-bold text-ink">{CONTACT.hours}</p>
             </div>
-            <p className="text-xs leading-relaxed text-muted">
-              The email address above is a placeholder pending confirmation and should be updated with
-              Zanokuhle's live inbox before this site goes public.
-            </p>
+            {IS_EMAIL_UNCONFIRMED && (
+              <p className="text-xs leading-relaxed text-muted">
+                The email address above is a placeholder pending confirmation and should be updated with
+                Zanokuhle's live inbox before this site goes public.
+              </p>
+            )}
           </div>
 
           <EnquiryForm enquiryTypes={generalEnquiryTypes} submitLabel="Send Message" formName="contact" />

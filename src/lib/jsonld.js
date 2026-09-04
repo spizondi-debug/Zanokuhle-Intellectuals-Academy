@@ -1,13 +1,17 @@
 // JSON-LD builders — every field pulls from verified data already in
 // src/data/org.js and src/lib/siteConfig.js. Nothing here invents a stat,
 // partner, review or address. Schema types that would need information the
-// organisation hasn't confirmed yet (nonprofitStatus, sameAs social
-// profiles, LocalBusiness) are deliberately left out rather than guessed —
-// see the SEO audit report for what's still needed to add them.
+// organisation hasn't confirmed yet (nonprofitStatus, LocalBusiness) are
+// deliberately left out rather than guessed — see the SEO audit report for
+// what's still needed to add them. `sameAs` (social profile URLs) is added
+// automatically the moment real ones are configured — see SOCIALS in
+// data/org.js — and omitted entirely until then, rather than pointing at
+// placeholder "#" links.
 import { SITE_URL, SITE_NAME } from './siteConfig.js'
-import { CONTACT, REGISTRATION } from '../data/org.js'
+import { CONTACT, REGISTRATION, SOCIALS } from '../data/org.js'
 
 export function organizationJsonLd() {
+  const sameAs = Object.values(SOCIALS).filter(Boolean)
   return {
     '@context': 'https://schema.org',
     '@type': 'NGO',
@@ -35,6 +39,7 @@ export function organizationJsonLd() {
       opens: '08:00',
       closes: '16:00',
     },
+    ...(sameAs.length > 0 ? { sameAs } : {}),
   }
 }
 

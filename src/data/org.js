@@ -11,17 +11,31 @@ export const REGISTRATION = {
   npc: '2022/619121/08',
 }
 
+// Configurable via VITE_CONTACT_EMAIL once Zanokuhle confirms their live
+// inbox. Falls back to a clearly-named placeholder otherwise —
+// IS_EMAIL_UNCONFIRMED lets any page show (or automatically stop showing,
+// once a real one is set) a "needs confirmation" note next to it.
+const PLACEHOLDER_EMAIL = 'info@zanokuhleacademy.org.za'
+const email = import.meta.env.VITE_CONTACT_EMAIL || PLACEHOLDER_EMAIL
+export const IS_EMAIL_UNCONFIRMED = email === PLACEHOLDER_EMAIL
+
 export const CONTACT = {
-  email: 'info@zanokuhleacademy.org.za', // PLACEHOLDER — confirm before launch.
+  email,
   phone: '010 065 0822',
   addressLines: ['64 Hill St, Ferndale', 'Randburg, 2194'],
   hours: 'Monday – Friday, 8am – 4pm',
 }
 
+// Real social profile URLs, configured via environment variables — unset
+// (empty string) by default rather than a "#" placeholder, so Footer.jsx
+// can tell "no real URL yet" apart from "a real URL" and hide each icon
+// until it has one, instead of showing a dead link. Set
+// VITE_SOCIAL_FACEBOOK_URL / VITE_SOCIAL_INSTAGRAM_URL /
+// VITE_SOCIAL_LINKEDIN_URL once Zanokuhle confirms real profile URLs.
 export const SOCIALS = {
-  facebook: '#',
-  instagram: '#',
-  linkedin: '#',
+  facebook: import.meta.env.VITE_SOCIAL_FACEBOOK_URL || '',
+  instagram: import.meta.env.VITE_SOCIAL_INSTAGRAM_URL || '',
+  linkedin: import.meta.env.VITE_SOCIAL_LINKEDIN_URL || '',
 }
 
 /**

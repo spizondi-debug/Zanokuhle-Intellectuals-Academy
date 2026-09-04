@@ -22,25 +22,50 @@
  * becomes available; PhotoPlaceholder remains the right choice for any
  * slot that doesn't yet have a suitable photo at all.
  *
- * `src` takes the full path (e.g. "/images/stock-hero-learners-smiling.jpg"),
- * not just a filename — scripts/build-preview.mjs finds and inlines every
- * "/images/<file>" reference in the built output as a data URI for the
- * standalone preview, which only works if that full path exists as one
- * literal string somewhere (in a JSX prop or a data file) rather than
- * assembled at runtime by concatenation, which a minifier can split apart.
+ * `src` (and `webpSrc`/`webpSrc800w` below) take the full literal path
+ * (e.g. "/images/stock-hero-learners-smiling.jpg"), not just a filename,
+ * and must be passed as complete literal strings at the call site rather
+ * than built at runtime (e.g. `src.replace('.jpg', '.webp')`) —
+ * scripts/build-preview.mjs finds and inlines every "/images/<file>"
+ * reference in the built output as a data URI for the standalone preview,
+ * which only works if that full path exists as one literal string
+ * somewhere a minifier can't split apart.
+ *
+ * `webpSrc` (optional): a WebP encode of the same photo. When given, this
+ * renders a <picture> offering it first — modern browsers use the
+ * smaller WebP; anything else falls back to `src`. `webpSrc800w`
+ * (optional, requires `webpSrc`): a smaller WebP variant for narrow
+ * viewports, added to the same <source>'s srcset alongside `webpSrc` at
+ * the image's real (`width`) size — pass `sizes` to describe how wide
+ * this image actually renders in the layout so the browser can pick
+ * correctly (defaults to a sensible one-column-on-mobile guess).
  */
-export default function StockPhoto({ src, alt, className = '', width, height }) {
+export default function StockPhoto({ src, webpSrc, webpSrc800w, alt, className = '', width, height, sizes = '(min-width: 1024px) 50vw, 100vw' }) {
+  const img = (
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      className="absolute inset-0 h-full w-full object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  )
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        className="absolute inset-0 h-full w-full object-cover"
-        loading="lazy"
-        decoding="async"
-      />
+      {webpSrc ? (
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={webpSrc800w ? `${webpSrc800w} 800w, ${webpSrc} ${width}w` : webpSrc}
+            sizes={webpSrc800w ? sizes : undefined}
+          />
+          {img}
+        </picture>
+      ) : (
+        img
+      )}
     </div>
   )
 }

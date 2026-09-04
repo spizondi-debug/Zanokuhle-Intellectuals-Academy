@@ -34,6 +34,8 @@ export default function SocialAndCommunityDevelopment() {
         title="Social & Community Development."
         lead="We work alongside communities — not for them — so that opportunity and support reach further than any one learner or classroom."
         image="/images/stock-community-playground.jpg"
+        imageWebp="/images/stock-community-playground.webp"
+        imageWebp800w="/images/stock-community-playground-800w.webp"
         imageWidth={1920}
         imageHeight={1280}
       />
@@ -64,6 +66,7 @@ export default function SocialAndCommunityDevelopment() {
         <div className="container-px">
           <StockPhoto
             src="/images/stock-community-playground.jpg"
+            webpSrc="/images/stock-community-playground.webp"
             alt="A child at a community playground"
             className="min-h-[16rem] rounded-xl lg:min-h-[20rem]"
             width={1920}

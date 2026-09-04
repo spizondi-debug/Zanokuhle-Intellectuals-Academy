@@ -13,7 +13,17 @@ import { defineConfig } from 'vite'
 // reason (see src/main.jsx).
 const singleFilePreview = process.env.VITE_HASH_ROUTER === '1'
 
+// Hosting under a subpath (e.g. https://example.org/academy/ rather than
+// the domain root)? Set VITE_BASE_PATH to that subpath (with leading and
+// trailing slashes, e.g. "/academy/") when building. Left unset, the site
+// deploys at domain root as it does today — src/main.jsx reads the
+// resulting import.meta.env.BASE_URL to configure react-router's
+// `basename` to match automatically, so this is the only place to change.
+// See the comment in main.jsx for what a subpath does and doesn't cover.
+const basePath = process.env.VITE_BASE_PATH || '/'
+
 export default defineConfig({
+  base: basePath,
   plugins: [react()],
   build: singleFilePreview
     ? { rollupOptions: { output: { inlineDynamicImports: true } } }
