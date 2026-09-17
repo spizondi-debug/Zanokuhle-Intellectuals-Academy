@@ -24,7 +24,14 @@ const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined
 // them with the BASE_URL prefix used here, so image requests stay correct
 // under a subpath (e.g. a GitHub Pages project site) without breaking that
 // literal-string search — see the comment in assetPath.js for why.
+// Drop BOTH static fallbacks from index.html before React mounts, not just
+// the description. react-helmet-async cannot remove <head> tags it did not
+// render itself, so whichever fallback is left behind survives alongside the
+// route-specific tag helmet adds — and the prerendered HTML then shipped two
+// <title> elements on all fifteen routes. Only one is valid, and a crawler
+// choosing the wrong one gets the same generic name on every page.
 document.querySelector('meta[name="description"]')?.remove()
+document.querySelector('title')?.remove()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

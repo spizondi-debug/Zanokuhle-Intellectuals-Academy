@@ -128,6 +128,25 @@ async function main() {
         // exact timing, just drop it if it's still there at capture time.
         html = html.replace(/<meta name="description">/g, '')
 
+        // Safety net for the same class of problem on <title>. main.jsx now
+        // removes index.html's static fallback title before React mounts, but
+        // that is a timing-sensitive removal exactly like the description one,
+        // and a page that ships two <title> elements is invalid HTML whose
+        // resolution is left to the consumer. Keep the first (helmet renders
+        // the route-specific title ahead of any leftover fallback) and drop
+        // the rest, so the output cannot regress on a slow capture.
+        {
+          const head = html.slice(0, html.indexOf('</head>'))
+          const titles = head.match(/<title[^>]*>[\s\S]*?<\/title>/g) || []
+          if (titles.length > 1) {
+            let first = true
+            html = html.replace(/<title[^>]*>[\s\S]*?<\/title>/g, (m) => {
+              if (first) { first = false; return m }
+              return ''
+            })
+          }
+        }
+
         const outPath = route === '/' ? path.join(dist, 'index.html') : path.join(dist, route.replace(/^\//, ''), 'index.html')
         rendered.push({ outPath, html })
         ok++
