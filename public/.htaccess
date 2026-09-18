@@ -38,11 +38,19 @@ ErrorDocument 404 /404.html
   # on social media or in someone's bookmarks dead-ends on a 404.
   # 301 (permanent) so search engines transfer the old ranking rather than
   # treating these as two competing pages.
-  RedirectMatch 301 ^/alexandra-learner-advancement/?$    /programmes/alexandra-learner-advancement
-  RedirectMatch 301 ^/early-childhood-development/?$      /programmes/early-childhood-development
-  RedirectMatch 301 ^/education-after-school/?$           /programmes/education-after-school
-  RedirectMatch 301 ^/skills-and-youth-development/?$     /programmes/skills-and-youth-development
-  RedirectMatch 301 ^/social-and-community-development/?$ /programmes/social-and-community-development
+  #
+  # RewriteRule, not RedirectMatch. RedirectMatch belongs to mod_alias, and
+  # nesting it inside an <IfModule mod_rewrite.c> block makes it depend on a
+  # module that does not own it. mod_rewrite is demonstrably active here (the
+  # HTTPS redirect above works), so expressing these as rewrites removes a
+  # module we were relying on without checking. Note the patterns have no
+  # leading slash: in .htaccess context mod_rewrite strips the directory
+  # prefix before matching, which is the opposite of RedirectMatch.
+  RewriteRule ^alexandra-learner-advancement/?$    /programmes/alexandra-learner-advancement [L,R=301]
+  RewriteRule ^early-childhood-development/?$      /programmes/early-childhood-development [L,R=301]
+  RewriteRule ^education-after-school/?$           /programmes/education-after-school [L,R=301]
+  RewriteRule ^skills-and-youth-development/?$     /programmes/skills-and-youth-development [L,R=301]
+  RewriteRule ^social-and-community-development/?$ /programmes/social-and-community-development [L,R=301]
 </IfModule>
 
 <IfModule mod_deflate.c>
