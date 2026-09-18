@@ -1,0 +1,69 @@
+# Zanokuhle Intellectuals Academy — Apache config for cPanel hosting.
+#
+# Lives in public/ so Vite copies it into dist/ on every build. It was briefly
+# maintained by hand in dist/ instead, which is gitignored — so any rebuild
+# would have dropped it, taking HTTPS, the 404 page and the redirects below
+# with it, silently.
+#
+# Every route is a real prerendered index.html, so there is deliberately no SPA
+# catch-all rewrite: one would mask genuine 404s and serve the homepage for
+# mistyped URLs, which is worse for visitors and for crawlers.
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Let's Encrypt validates by fetching a token over plain HTTP at
+  # /.well-known/acme-challenge/. Redirecting that to HTTPS breaks the check
+  # before a certificate exists — which is why cPanel reported "HTTP-based
+  # Domain Control Validation failed" on the first issue. DNS validation
+  # covered it that time; this stops the ~90-day auto-renewal depending on
+  # that happening again.
+  RewriteRule ^\.well-known/acme-challenge/ - [L]
+
+  # Force HTTPS.
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Canonicalise on the bare domain. siteConfig.js, sitemap.xml, robots.txt and
+  # every canonical tag name the apex, so www must redirect to it or the site
+  # answers on two addresses that disagree about which one is real.
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # ── Legacy WordPress URLs ────────────────────────────────────────────────
+  # The old site used flat slugs; programme pages are now nested under
+  # /programmes/. Without these, every link to the old site in Google's index,
+  # on social media or in someone's bookmarks dead-ends on a 404.
+  # 301 (permanent) so search engines transfer the old ranking rather than
+  # treating these as two competing pages.
+  RedirectMatch 301 ^/alexandra-learner-advancement/?$    /programmes/alexandra-learner-advancement
+  RedirectMatch 301 ^/early-childhood-development/?$      /programmes/early-childhood-development
+  RedirectMatch 301 ^/education-after-school/?$           /programmes/education-after-school
+  RedirectMatch 301 ^/skills-and-youth-development/?$     /programmes/skills-and-youth-development
+  RedirectMatch 301 ^/social-and-community-development/?$ /programmes/social-and-community-development
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Vite fingerprints these filenames, so a year is safe and anything less is
+  # wasted bandwidth.
+  <FilesMatch "\.(js|css|woff2)$">
+    ExpiresDefault "access plus 1 year"
+    Header set Cache-Control "public, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(jpg|jpeg|png|webp|svg|ico)$">
+    ExpiresDefault "access plus 6 months"
+  </FilesMatch>
+  # HTML is not fingerprinted: it must revalidate or a deploy goes unseen.
+  <FilesMatch "\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
