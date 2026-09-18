@@ -8,19 +8,26 @@ name: CI
 # degrade gracefully (warn, don't fail the build) if that's ever
 # unavailable — see its own comments.
 #
-# A second job, deploy, publishes the site to GitHub Pages on every push
-# to main (not on pull requests) once lint-and-build has passed. It's a
-# separate job rather than reusing lint-and-build's artifact because it
-# needs its own build with different env vars: VITE_SITE_URL set to the
-# real live Pages URL (so canonical/OG/JSON-LD tags are correct there,
-# instead of the placeholder domain lint-and-build deliberately uses) and
-# VITE_BASE_PATH set to the repo subpath GitHub Pages project sites are
-# served under.
+# A second job, deploy, publishes the site to the cPanel hosting on every
+# push to main (not on pull requests) once lint-and-build has passed. The
+# site is served from /home/prestige/zanokuhleintellectuals.co.za on the
+# shared host, which is the document root cPanel's Domains page lists for
+# this domain.
+#
+# It builds again rather than reusing lint-and-build's artifact so that
+# what is uploaded is demonstrably produced by this job from this commit,
+# with no artifact hand-off in between.
 
 on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'List what would change without uploading anything'
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -64,16 +71,16 @@ jobs:
 
   deploy:
     needs: lint-and-build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main')
+      || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     concurrency:
-      group: pages
+      # Two deploys mirroring into the same directory at once would
+      # interleave uploads and deletions. Queue them instead of cancelling:
+      # a half-finished upload that gets cancelled leaves the live site in
+      # a mixed state.
+      group: cpanel-deploy
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
@@ -89,32 +96,89 @@ jobs:
       - name: Install Playwright's Chromium (used by the postbuild prerender step)
         run: npx playwright install --with-deps chromium
 
-      - name: Build for GitHub Pages
+      - name: Build
         run: npm run build
-        # No VITE_SITE_URL or VITE_BASE_PATH needed any more. The site is
-        # served from the custom domain zanokuhleintellectuals.co.za at its
-        # root, which is exactly what the defaults now produce:
-        # src/lib/siteConfig.js defaults to that domain, and vite.config.js
-        # defaults `base` to "/". public/CNAME is what tells GitHub Pages to
-        # serve the custom domain instead of the /<repo>/ project subpath.
+        # No env overrides. src/lib/siteConfig.js already defaults to
+        # zanokuhleintellectuals.co.za and vite.config.js defaults `base` to
+        # "/", which is exactly right for a site served from a domain root.
 
-      - name: Configure GitHub Pages
-        # Reads the repository's existing Pages configuration. Pages must
-        # already be enabled with "Source: GitHub Actions" under
-        # Settings → Pages — that is a one-time manual step and cannot be
-        # automated from here: creating a Pages site through the API needs
-        # repository admin rights, which the workflow's GITHUB_TOKEN does
-        # not have. `pages: write` (granted above) only permits *deploying*
-        # to a site that already exists. Trying `enablement: true` fails
-        # with "Create Pages site failed: Resource not accessible by
-        # integration", so it is deliberately not set here.
-        uses: actions/configure-pages@v5
+      - name: Check the build looks deployable
+        # A mirror that uploads an empty or half-built dist/ would take the
+        # live site down, and FTP gives no way to roll that back. Cheap
+        # assertions here are worth more than a fast deploy.
+        run: |
+          set -euo pipefail
+          test -f dist/index.html      || { echo "::error::dist/index.html missing"; exit 1; }
+          test -f dist/.htaccess       || { echo "::error::dist/.htaccess missing — HTTPS, the 404 page and the legacy redirects all live there"; exit 1; }
+          pages=$(find dist -name index.html | wc -l)
+          echo "prerendered pages: $pages"
+          [ "$pages" -ge 15 ] || { echo "::error::expected at least 15 prerendered pages, found $pages"; exit 1; }
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+      - name: Verify the deploy secrets are present
+        # Without this the lftp command below fails with an opaque login
+        # error instead of saying which secret is missing.
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          missing=
+          [ -n "${FTP_HOST:-}" ]     || missing="$missing FTP_HOST"
+          [ -n "${FTP_USER:-}" ]     || missing="$missing FTP_USER"
+          [ -n "${FTP_PASSWORD:-}" ] || missing="$missing FTP_PASSWORD"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secret(s):$missing — add them under Settings → Secrets and variables → Actions"
+            exit 1
+          fi
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Install lftp
+        # Deliberately not a marketplace FTP action. This step hands over
+        # credentials that can overwrite the live site, and lftp comes from
+        # Ubuntu's own repositories rather than a third-party action whose
+        # contents can change under a mutable tag.
+        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends lftp
+
+      - name: Deploy to cPanel over FTPS
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR || '/' }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
+        run: |
+          set -euo pipefail
+          DRY=""
+          if [ "$DRY_RUN" = "true" ]; then
+            DRY="--dry-run"
+            echo "::notice::Dry run — listing changes only, nothing will be uploaded or deleted."
+          fi
+          # ssl-force refuses to continue unencrypted: plain FTP would put
+          # this password on the wire in clear text. verify-certificate is
+          # left on, which is why FTP_HOST should be the server's own
+          # hostname (wp8.host-ww.net) rather than the site's domain — the
+          # host's certificate is issued for the former.
+          #
+          # --delete keeps the server from accumulating pages that have been
+          # removed from the site, but it deletes anything in the remote
+          # directory that is not in dist/, so the exclusions matter:
+          #   .well-known  AutoSSL writes its validation tokens there; losing
+          #                them mid-renewal breaks the certificate.
+          #   error_log    written by the server, not by us.
+          #   cgi-bin      created by cPanel.
+          #   .ftpquota    written by the FTP daemon itself.
+          lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate true;
+            set net:max-retries 3;
+            set net:timeout 20;
+            open -u '$FTP_USER','$FTP_PASSWORD' '$FTP_HOST';
+            mirror --reverse --delete --verbose $DRY \
+              --parallel=4 \
+              --exclude-glob .well-known/ \
+              --exclude-glob cgi-bin/ \
+              --exclude-glob error_log \
+              --exclude-glob .ftpquota \
+              dist/ '$FTP_REMOTE_DIR';
+          "
