@@ -64,7 +64,6 @@ ErrorDocument 404 /404.html
   # wasted bandwidth.
   <FilesMatch "\.(js|css|woff2)$">
     ExpiresDefault "access plus 1 year"
-    Header set Cache-Control "public, immutable"
   </FilesMatch>
   <FilesMatch "\.(jpg|jpeg|png|webp|svg|ico)$">
     ExpiresDefault "access plus 6 months"
@@ -72,6 +71,21 @@ ErrorDocument 404 /404.html
   # HTML is not fingerprinted: it must revalidate or a deploy goes unseen.
   <FilesMatch "\.html$">
     ExpiresDefault "access plus 0 seconds"
+  </FilesMatch>
+</IfModule>
+
+# Cache-Control belongs to mod_headers, not mod_expires. These were previously
+# nested inside the mod_expires block above, which meant Apache would only skip
+# them if mod_expires were missing — on a server with mod_expires but without
+# mod_headers, an unrecognised Header directive in .htaccess is a hard 500 for
+# every request, taking the whole site down. Same mistake as putting
+# RedirectMatch under an <IfModule mod_rewrite.c> guard: each directive has to
+# sit under the module that actually owns it.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
 </IfModule>
