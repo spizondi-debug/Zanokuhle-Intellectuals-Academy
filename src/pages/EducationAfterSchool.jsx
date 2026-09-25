@@ -67,6 +67,36 @@ export default function EducationAfterSchool() {
         </div>
       </section>
 
+      <section className="border-t border-line bg-white section-pad" aria-labelledby="learner-tools">
+        <div className="container-px">
+          <SectionHeading eyebrow="Free learner tools" title="Help with APS, applications and funding." />
+          <p id="learner-tools" className="mt-4 max-w-2xl leading-relaxed text-body">
+            Learners and parents can use these free guides from EduRance, a learner platform built by Prestige Tutelage, to
+            plan subject choices, applications and funding for 2027.
+          </p>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ['Free APS calculator', 'aps-calculator.html'],
+              ['What can I study with my APS?', 'what-can-i-study-with-my-aps.html'],
+              ['NSFAS 2027: who qualifies and how to apply', 'nsfas-2027.html'],
+              ['University closing dates 2027', 'universities-2027.html'],
+            ].map(([label, path]) => (
+              <li key={path}>
+                <a
+                  href={`https://spizondi-debug.github.io/Edurance/${path}`}
+                  target="_blank"
+                  rel="noopener"
+                  className="flex h-full items-center justify-between gap-3 rounded-xl border border-line bg-white p-5 font-bold text-ink hover:border-blue-deep"
+                >
+                  {label}
+                  <span aria-hidden="true" className="text-blue-deep">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {related.length > 0 && (
         <section className="border-t border-line bg-white section-pad">
           <div className="container-px">

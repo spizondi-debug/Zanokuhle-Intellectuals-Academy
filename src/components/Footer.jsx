@@ -64,9 +64,15 @@ export default function Footer() {
                 <ul className="mt-4 space-y-2.5">
                   {group.links.map((l) => (
                     <li key={l.label}>
-                      <Link to={l.to} className="text-sm text-white/75 hover:text-turquoise-light">
-                        {l.label}
-                      </Link>
+                      {l.href ? (
+                        <a href={l.href} target="_blank" rel="noopener" className="text-sm text-white/75 hover:text-turquoise-light">
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link to={l.to} className="text-sm text-white/75 hover:text-turquoise-light">
+                          {l.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

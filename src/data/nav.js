@@ -38,6 +38,7 @@ export const footerNav = [
       { label: 'Education & After-School Support', to: '/programmes/education-after-school' },
       { label: 'Skills & Youth Development', to: '/programmes/skills-and-youth-development' },
       { label: 'Social & Community Development', to: '/programmes/social-and-community-development' },
+      { label: 'Free APS calculator (EduRance)', href: 'https://spizondi-debug.github.io/Edurance/aps-calculator.html' },
     ],
   },
   {
